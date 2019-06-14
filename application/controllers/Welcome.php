@@ -2,7 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Welcome extends CI_Controller {
-
+    public $access;
 	/**
 	 * Index Page for this controller.
 	 *
@@ -24,6 +24,7 @@ class Welcome extends CI_Controller {
         $this->load->library('form_validation');
 
         $email = $this->session->userdata('email');
+        $this->access = $this->session->userdata('access');
         if (!isset($email)) {
             redirect(base_url('index.php/User'));
         }
@@ -31,6 +32,14 @@ class Welcome extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('template');
+        $email = $this->session->userdata('email');
+	    if($this->access == "admin"){
+            $this->load->view('admin');
+        } else if($this->access == "user") {
+            $this->load->view('user');
+        } else {
+	        
+        }
+
 	}
 }

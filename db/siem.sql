@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 10, 2019 at 12:04 PM
+-- Generation Time: Jun 14, 2019 at 04:12 PM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 7.0.8
 
@@ -30,6 +30,7 @@ CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `email` varchar(200) NOT NULL,
   `password` varchar(100) NOT NULL,
+  `access` varchar(20) DEFAULT NULL,
   `created_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_by` int(11) NOT NULL
@@ -39,8 +40,9 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `email`, `password`, `created_date`, `updated_date`, `updated_by`) VALUES
-(1, 'daneswarajauhari@gmail.com', '23774d7fe41cc7e444830818ba4d308a', '2019-06-10 16:50:21', '2019-06-10 16:51:13', 1);
+INSERT INTO `users` (`id`, `email`, `password`, `access`, `created_date`, `updated_date`, `updated_by`) VALUES
+(1, 'daneswarajauhari@gmail.com', '23774d7fe41cc7e444830818ba4d308a', 'user', '2019-06-10 16:50:21', '2019-06-14 20:56:49', 1),
+(2, 'danes@mail.com', 'e10adc3949ba59abbe56e057f20f883e', 'admin', '2019-06-14 20:24:36', '2019-06-14 21:04:47', 1);
 
 --
 -- Indexes for dumped tables

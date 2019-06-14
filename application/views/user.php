@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>AdminLTE 2 | Dashboard</title>
+    <title>AdminLTE 2 | User</title>
     <!-- Tell the browser to be responsive to screen width -->
 
     <?php $this->load->view('_template/header.php') ?>
