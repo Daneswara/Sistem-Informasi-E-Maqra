@@ -7,7 +7,6 @@ class User extends CI_Controller
     {
         parent::__construct();
         $this->load->model("users_model");
-        $this->load->model("identitas_model");
         $this->load->library('form_validation');
     }
 
@@ -16,14 +15,14 @@ class User extends CI_Controller
         $this->load->view('login');
     }
 
-    public function identitas()
+    public function view_profile()
     {
-        $identitas = $this->identitas_model;
-        $data = $identitas->getIdentitas();
+        $user = $this->users_model;
+        $data['hasil'] = $user->getProfile();
         if($data != false){
-            $this->load->view('identitas', $data);
+            $this->load->view('profil', $data);
         } else {
-            $this->load->view('identitas');
+            $this->load->view('profil');
         }
     }
 
@@ -44,12 +43,5 @@ class User extends CI_Controller
             // TODO tampilkan user salah input
             redirect(base_url('index.php/User'));
         }
-    }
-
-    public function simpan_identitas()
-    {
-        $identitas = $this->identitas_model;
-        $data = $identitas->getIdentitas();
-
     }
 }

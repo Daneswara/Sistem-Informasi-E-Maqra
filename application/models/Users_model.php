@@ -41,4 +41,15 @@ class Users_model extends CI_Model
             return false;
         }
     }
+
+    public function getProfile()
+    {
+        $id_user = $this->session->userdata('id');
+        $hasil = $this->db->get_where($this->_table, ['id' => $id_user])->row();
+        if ($hasil) {
+            return $hasil;
+        } else {
+            return false;
+        }
+    }
 }
