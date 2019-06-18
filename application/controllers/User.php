@@ -15,6 +15,11 @@ class User extends CI_Controller
         $this->load->view('login');
     }
 
+    public function register()
+    {
+        $this->load->view('register');
+    }
+
     public function view_profile()
     {
         $user = $this->users_model;
@@ -42,6 +47,20 @@ class User extends CI_Controller
         } else {
             // TODO tampilkan user salah input
             redirect(base_url('index.php/User'));
+        }
+    }
+
+    public function daftar()
+    {
+        $user = $this->users_model;
+        if($user->add_user()){
+            echo "sukses";
+            $this->load->view('register');
+            // TODO sukses mendaftar dan tampilkan informasi menunggu proses validasi panitia
+        } else {
+            echo "gagal";
+            $this->load->view('register');
+            // TODO tampilkan gagal
         }
     }
 }

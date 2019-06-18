@@ -8,6 +8,11 @@ class Users_model extends CI_Model
     public $email;
     public $password;
     public $updated_by;
+    public $nama;
+    public $nohp;
+    public $surat;
+    public $daerah;
+    public $access;
 
     public function rules()
     {
@@ -50,6 +55,32 @@ class Users_model extends CI_Model
             return $hasil;
         } else {
             return false;
+        }
+    }
+
+    public function add_user()
+    {
+        $post = $this->input->post();
+        $this->nama = $post['nama'];
+        $this->email = $post['email'];
+        $this->password = md5($post['password']);
+        $this->nohp = $post['nohp'];
+        $this->daerah = $post['daerah'];
+        $this->updated_by = 0;
+        $this->access = 'user';
+
+        $config['upload_path'] = './surat/';
+        $config['allowed_types'] = 'gif|jpg|png';
+
+        $this->load->library('upload', $config);
+        $upload = $this->upload->do_upload('surat');
+        if (!$upload) {
+            return false;
+        } else {
+            $upload_data = $this->upload->data();
+            $this->surat = $upload_data['file_name'];
+            $this->db->insert($this->_table,$this);
+            return true;
         }
     }
 }
