@@ -12,8 +12,12 @@
     <input type="text" name="daerah" placeholder="Nama Daerah" value="<?php echo $hasil->daerah;?>"/><br>
     Email:
     <input type="text" name="email" placeholder="Email" value="<?php echo $hasil->email;?>"/><br>
+    Surat Mandat Sebagai Admin Kafilah:
+    <input type="file" name="surat" required/><br>
     <button type="submit">Edit</button>
 </form>
+<br>
+<img src="<?php echo base_url('surat/'.$hasil->surat);?>" width="600px">
 <!-- ./wrapper -->
 <?php $this->load->view('_template/footer.php') ?>
 </body>
