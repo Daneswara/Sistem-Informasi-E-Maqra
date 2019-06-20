@@ -37,11 +37,13 @@ class User extends CI_Controller
                 redirect(base_url());
                 // $this->load->view('admin');
             } else {
+                $this->session->set_flashdata('pesan', '<div class="alert alert-danger"><strong>Login gagal! Periksa username dan password</strong></div>');
                 // TODO tampilkan user salah email / password
                 redirect(base_url('index.php/User'));
             }
         } else {
             // TODO tampilkan user salah input
+            $this->session->set_flashdata('pesan', '<div class="alert alert-danger"><strong>Login gagal! Periksa username dan password</strong></div>');
             redirect(base_url('index.php/User'));
         }
     }

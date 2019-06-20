@@ -27,7 +27,7 @@
         <!-- <p class="login-box-msg">
           Log in to start your session
         </p> -->
-
+        <?php echo $this->session->flashdata('pesan'); ?>
         <form action="<?php echo base_url(); ?>index.php/User/proses" method="post">
             <div class="form-group has-feedback">
                 <input type="text" class="form-control" placeholder="Email" name="email">
