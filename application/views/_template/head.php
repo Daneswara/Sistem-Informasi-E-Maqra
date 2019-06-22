@@ -39,7 +39,7 @@
     <div class="wrapper">
 
         <header class="main-header">
-            <a href="#" class="logo"><b>Admin</b>LTE</a>
+            <a href="#" class="logo"><b>E-Maqra </b>MTQ</a>
             <!-- Header Navbar: style can be found in header.less -->
             <nav class="navbar navbar-static-top" role="navigation">
                 <!-- Sidebar toggle button-->
@@ -65,7 +65,7 @@
                                         <li><!-- start message -->
                                             <a href="#">
                                                 <div class="pull-left">
-                                                    <img src="<?php echo base_url('assets/AdminLTE-2.0.5/dist/img/user2-160x160.jpg') ?>" class="img-circle" alt="User Image"/>
+                                                    <img src="<?php echo base_url('assets/adminlte/dist/img/user2-160x160.jpg') ?>" class="img-circle" alt="User Image"/>
                                                 </div>
                                                 <h4>
                                                     Support Team
@@ -161,10 +161,13 @@
                                 <!-- Menu Footer-->
                                 <li class="user-footer">
                                     <div class="pull-left">
-                                        <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                        <a href="<?php echo base_url('index.php/User')?>" class="btn btn-default btn-flat">Profile</a>
+                                    </div>
+                                    <div class="col-xs-2 text-center">
+                                        <a href="<?php echo base_url('index.php/User/Ganti')?>" class="btn btn-default btn-flat">Ganti Password</a>
                                     </div>
                                     <div class="pull-right">
-                                        <a href="<?php echo base_url('/index.php/User/logout') ?>" class="btn btn-default btn-flat">Sign out</a>
+                                        <a href="<?php echo base_url('index.php/User/logout') ?>" class="btn btn-default btn-flat">Sign out</a>
                                     </div>
                                 </li>
                             </ul>

@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Register</title>
+    <title>Ganti Password</title>
     <?php $this->load->view('_template/header.php') ?>
 </head>
 <body class="hold-transition login-page">
 <div class="login-box">
     <div class="login-logo">
-        <a href="<?php echo base_url(); ?>"><b>Daftar Akun Baru</a>
+        <a href="<?php echo base_url(); ?>"><b>Ganti Password</a>
     </div>
 
     <!-- /.login-logo -->
@@ -16,27 +16,35 @@
           Log in to start your session
         </p> -->
 
-        <form action="<?php echo base_url(); ?>index.php/User/daftar" method="post">
-        <div class="form-group has-feedback">
+        <form action="<?php echo base_url(); ?>index.php/User/gantipswd" method="post">
+        <!-- <div class="form-group has-feedback">
                 <input type="text" class="form-control" placeholder="Nama" name="nama">
                 <span class="glyphicon glyphicon-user form-control-feedback"></span>
-            </div>
-            <div class="form-group has-feedback">
+            </div> -->
+            <!-- <div class="form-group has-feedback">
                 <input type="text" class="form-control" placeholder="Daerah" name="daerah">
                 <span class="glyphicon glyphicon-user form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
                 <input type="text" class="form-control" placeholder="Email" name="email">
                 <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-            </div>
+            </div> -->
             <div class="form-group has-feedback">
-                <input type="password" class="form-control" placeholder="Password" name="password">
+                <input type="password" class="form-control" placeholder="Password Lama" name="password">
                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group has-feedback">
+                <input type="password" class="form-control" placeholder="Password Baru" name="password">
+                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+            </div>
+            <div class="form-group has-feedback">
+                <input type="password" class="form-control" placeholder="Ulangi Password Baru" name="password">
+                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+            </div>
+            <!-- <div class="form-group">
                   <label for="exampleInputFile">Surat Mandat Sebagai Admin Kafilah</label>
                   <input type="file" id="exampleInputFile">
-             </div>
+             </div> -->
             
             <div class="row">
                 <!-- <div class="col-xs-8">
@@ -47,7 +55,7 @@
                   </div>
                 </div> -->
                 <div class="col-xs-offset-8 col-xs-4">
-                    <button type="submit" class="btn btn-primary btn-block btn-flat">Daftar</button>
+                    <button type="submit" class="btn btn-primary btn-block btn-flat">Ganti</button>
                 </div>
             </div>
         </form>

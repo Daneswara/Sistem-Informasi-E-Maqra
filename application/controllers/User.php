@@ -60,6 +60,12 @@ class User extends CI_Controller
     public function keDaftar(){
         $this->load->view('register');
     }
+    public function Ganti(){
+        $this->load->view('ganti');
+    }
+    public function gantipswd(){
+        $this->load->view('login');
+    }
 
     public function daftar()
     {

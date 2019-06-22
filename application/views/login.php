@@ -63,7 +63,7 @@
         </div> -->
         <!-- /.social-auth-links -->
 
-        <a href="#">Lupa Password</a><br>
+        <a href="<?php echo base_url(); ?>index.php/User/Ganti">Lupa Password</a><br>
         <a href="<?php echo base_url(); ?>index.php/User/keDaftar" class="text-center">Daftar Akun Baru</a>
 
     </div>
