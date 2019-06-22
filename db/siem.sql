@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 18, 2019 at 03:42 PM
+-- Generation Time: Jun 22, 2019 at 11:25 AM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 7.0.8
 
@@ -19,6 +19,31 @@ SET time_zone = "+00:00";
 --
 -- Database: `siem`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `peserta`
+--
+
+CREATE TABLE `peserta` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `nama` varchar(300) NOT NULL,
+  `kategori` int(11) NOT NULL,
+  `urutan` int(11) DEFAULT NULL,
+  `maqra` int(11) DEFAULT NULL,
+  `tema` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `peserta`
+--
+
+INSERT INTO `peserta` (`id`, `user_id`, `nama`, `kategori`, `urutan`, `maqra`, `tema`) VALUES
+(1, 5, 'Daneswara', 1, NULL, NULL, NULL),
+(2, 5, 'Daneswara', 1, NULL, NULL, NULL),
+(3, 5, 'Jauhari', 2, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -45,11 +70,17 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `daerah`, `email`, `password`, `nama`, `nohp`, `surat`, `access`, `created_date`, `updated_date`, `updated_by`) VALUES
-(4, 'Pati', 'new@new.com', '22af645d1859cb5ca6da0c484f1f37ea', 'Daneswara', '085730595101', 'themes9.jpg', 'user', '2019-06-18 20:42:09', '2019-06-18 20:42:09', 0);
+(5, 'Pati', 'new@new.com', '22af645d1859cb5ca6da0c484f1f37ea', 'Daneswara', '085730595101', 'themes10.jpg', 'admin', '2019-06-18 20:43:25', '2019-06-18 20:53:43', 0);
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `peserta`
+--
+ALTER TABLE `peserta`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `users`
@@ -62,10 +93,15 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `peserta`
+--
+ALTER TABLE `peserta`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
