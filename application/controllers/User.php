@@ -10,13 +10,23 @@ class User extends CI_Controller
         $this->load->library('form_validation');
     }
 
-    public function index()
+    public function login()
     {
         $this->load->view('login');
     }
 
-    public function view_profile()
+    public function logout()
     {
+        $this->session->sess_destroy();
+        $this->load->view('login');
+    }
+
+    public function index()
+    {
+        $email = $this->session->userdata('email');
+        if (!isset($email)) {
+            redirect(base_url('index.php/User/login'));
+        }
         $user = $this->users_model;
         $data['hasil'] = $user->getProfile();
         if($data != false){
@@ -39,15 +49,29 @@ class User extends CI_Controller
             } else {
                 $this->session->set_flashdata('pesan', '<div class="alert alert-danger"><strong>Login gagal! Periksa username dan password</strong></div>');
                 // TODO tampilkan user salah email / password
-                redirect(base_url('index.php/User'));
+                redirect(base_url('index.php/User/login'));
             }
         } else {
             // TODO tampilkan user salah input
             $this->session->set_flashdata('pesan', '<div class="alert alert-danger"><strong>Login gagal! Periksa username dan password</strong></div>');
-            redirect(base_url('index.php/User'));
+            redirect(base_url('index.php/User/login'));
         }
     }
     public function keDaftar(){
         $this->load->view('register');
+    }
+
+    public function daftar()
+    {
+        $user = $this->users_model;
+        if($user->add_user()){
+            echo "sukses";
+            $this->load->view('register');
+            // TODO sukses mendaftar dan tampilkan informasi menunggu proses validasi panitia
+        } else {
+            echo "gagal";
+            $this->load->view('register');
+            // TODO tampilkan gagal
+        }
     }
 }

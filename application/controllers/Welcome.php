@@ -26,7 +26,7 @@ class Welcome extends CI_Controller {
         $email = $this->session->userdata('email');
         $this->access = $this->session->userdata('access');
         if (!isset($email)) {
-            redirect(base_url('index.php/User'));
+            redirect(base_url('index.php/User/login'));
         }
     }
 
