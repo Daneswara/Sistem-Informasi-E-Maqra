@@ -15,6 +15,10 @@ class Kategori_model extends CI_Model
         return $this->db->get($this->_table)->result();
     }
 
+    public function getKategori($id){
+        return $this->db->get_where($this->_table, ['id' => $id])->row();
+    }
+
     public function add_kategori()
     {
         $post = $this->input->post();

@@ -8,6 +8,7 @@ class Peserta extends CI_Controller
     {
         parent::__construct();
         $this->load->model("peserta_model");
+        $this->load->model("kategori_model");
         $this->load->library('form_validation');
         $email = $this->session->userdata('email');
         $this->access = $this->session->userdata('access');
@@ -27,8 +28,19 @@ class Peserta extends CI_Controller
             }
         }
         $peserta = $this->peserta_model;
-        $data['list_peserta'] = $peserta->getAll();
+        $semua_peserta = $peserta->getAll();
+        foreach ($semua_peserta as $p){
+            $kategori = $this->getNamaKategori($p->kategori);
+            $p->kategori = $kategori;
+        }
+        $data['list_peserta'] = $semua_peserta;
         $this->load->view('peserta', $data);
+    }
+
+    public function getNamaKategori($id){
+        $kategori = $this->kategori_model;
+        $k = $kategori->getKategori($id);
+        return $k->kategori;
     }
 
     public function add()
