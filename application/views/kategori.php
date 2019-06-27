@@ -3,7 +3,11 @@ $this->load->view('_template/header');
 ?>
 <?php
 $this->load->view('_template/head');
-$this->load->view('_template/side');
+if($this->session->userdata('access') == "admin"){
+    $this->load->view('_template/side_admin');
+} else{
+    $this->load->view('_template/side');
+}
 ?>
     <!-- Content Header (Page header) -->
     <section class="content-header">
