@@ -36,6 +36,17 @@ class User extends CI_Controller
         }
     }
 
+    public function getAllUser(){
+        $kategori = $this->users_model;
+        $data['list_user'] = $kategori->getUser();
+        $this->load->view('user', $data);
+    }
+    public function getAllAdmin(){
+        $kategori = $this->users_model;
+        $data['list_user'] = $kategori->getAdmin();
+        $this->load->view('user', $data);
+    }
+
     public function proses()
     {
         $user = $this->users_model;

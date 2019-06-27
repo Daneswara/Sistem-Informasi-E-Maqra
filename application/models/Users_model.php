@@ -30,6 +30,14 @@ class Users_model extends CI_Model
     {
         return $this->db->get($this->_table)->result();
     }
+    public function getUser()
+    {
+        return $this->db->get_where($this->_table, ['access' => 'user'])->result();
+    }
+    public function getAdmin()
+    {
+        return $this->db->get($this->_table, ['access' => 'admin'])->result();
+    }
 
     public function cekUserLogin()
     {
