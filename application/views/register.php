@@ -23,7 +23,11 @@
             </div>
             <div class="form-group has-feedback">
                 <input type="text" class="form-control" placeholder="Daerah" name="daerah">
-                <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                <span class="glyphicon glyphicon-map-marker form-control-feedback"></span>
+            </div>
+            <div class="form-group has-feedback">
+                <input type="number" class="form-control" placeholder="No Hp" name="nohp">
+                <span class="glyphicon glyphicon-phone form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
                 <input type="text" class="form-control" placeholder="Email" name="email">

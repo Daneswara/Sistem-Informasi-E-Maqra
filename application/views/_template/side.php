@@ -39,13 +39,13 @@
                 </a>
             </li>            
             <li class="treeview">
-                <a href="#">
+                <a href="<?php echo base_url('index.php/NomerUrut')?>">
                     <i class="fa fa-laptop"></i>
                     <span>Ambil Nomor Urut</span>
                 </a>
             </li>
             <li class="treeview">
-                <a href="#">
+                <a href="<?php echo base_url('index.php/NomerUrut')?>">
                     <i class="fa fa-laptop"></i> <span>Ambil Maqra</span>
                 </a>
             </li>

@@ -18,8 +18,7 @@ class NomerUrut extends CI_Controller
 
     public function index()
     {
-        $nomerurut = $this->nomerurut_model;
-        $data['list_nomerurut'] = $nomerurut->getAll();
-        $this->load->view('kategori', $data);
+
+        $this->load->view('nomerurut');
     }
 }

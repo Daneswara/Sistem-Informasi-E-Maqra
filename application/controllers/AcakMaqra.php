@@ -18,8 +18,6 @@ class AcakMaqra extends CI_Controller
 
     public function index()
     {
-        $nomerurut = $this->acakmaqra_model;
-        $data['list_acakmaqra'] = $nomerurut->getAll();
-        $this->load->view('kategori', $data);
+        $this->load->view('acaknomor');
     }
 }
