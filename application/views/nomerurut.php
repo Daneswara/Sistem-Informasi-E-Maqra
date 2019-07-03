@@ -3,8 +3,8 @@ $this->load->view('_template/header');
 ?>
 <!--tambahkan custom css disini-->
 <?php
-// $this->load->view('_template/head');
-// $this->load->view('_template/side');
+ $this->load->view('_template/head');
+ $this->load->view('_template/side');
 ?>
 <!-- Content Header (Page header) -->
 <section class="content-header">
