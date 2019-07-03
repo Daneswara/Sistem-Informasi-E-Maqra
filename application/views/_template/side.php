@@ -15,7 +15,7 @@
         </div>
         <!-- /.search form -->
         <!-- sidebar menu: : style can be found in sidebar.less -->
-        <ul class="sidebar-menu">
+        <ul class="sidebar-menu" data-widget="tree">
             <li class="header">Menu User</li>
             <li class="treeview">
                 <a href="<?php echo base_url()?>">
@@ -110,6 +110,7 @@
             <li><a href="#"><i class="fa fa-circle-o text-warning"></i> Warning</a></li>
             <li><a href="#"><i class="fa fa-circle-o text-info"></i> Information</a></li>
         </ul> -->
+        </ul>
     </section>
     <!-- /.sidebar -->
 </aside>
