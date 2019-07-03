@@ -21,7 +21,7 @@ $this->load->view('_template/header');
 <section class="hold-transition lockscreen">
     <div class="lockscreen-wrapper">
         <div class="lockscreen-logo">
-            <a href=""><b>Siksa Waktu Anda</a>
+            <a href=""><b>Siksa Waktu Anda <br><?php echo date('d-m-Y H:i:s', strtotime($jadwal[0]->waktu_akhir_acak_nourut));?></a>
         </div>
         <div class="lockscreen-logo">
             <a href=""><b>Siksa Waktu Anda</a>

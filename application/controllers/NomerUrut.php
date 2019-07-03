@@ -8,6 +8,7 @@ class NomerUrut extends CI_Controller
     {
         parent::__construct();
         $this->load->model("nomerurut_model");
+        $this->load->model("jadwal_model");
         $this->load->library('form_validation');
         $email = $this->session->userdata('email');
         $this->access = $this->session->userdata('access');
@@ -18,7 +19,10 @@ class NomerUrut extends CI_Controller
 
     public function index()
     {
-
-        $this->load->view('nomerurut');
+        $tb_jadwal = $this->jadwal_model;
+        $jadwal = $tb_jadwal->getAll();
+        $data['jadwal'] = $jadwal;
+        print_r($jadwal);
+        $this->load->view('nomerurut', $data);
     }
 }

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 03, 2019 at 03:21 PM
+-- Generation Time: Jul 03, 2019 at 04:04 PM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 7.0.8
 
@@ -45,6 +45,26 @@ CREATE TABLE `acak_tema` (
   `hasil` int(11) NOT NULL,
   `tgl_acak` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `jadwal`
+--
+
+CREATE TABLE `jadwal` (
+  `id` int(11) NOT NULL,
+  `waktu_akhir_acak_nourut` datetime NOT NULL,
+  `waktu_akhir_acak_maqra` datetime NOT NULL,
+  `waktu_akhir_acak_tema` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `jadwal`
+--
+
+INSERT INTO `jadwal` (`id`, `waktu_akhir_acak_nourut`, `waktu_akhir_acak_maqra`, `waktu_akhir_acak_tema`) VALUES
+(1, '2019-07-31 00:00:00', '2019-07-31 00:00:00', '2019-07-31 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -158,6 +178,12 @@ ALTER TABLE `acak_tema`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `jadwal`
+--
+ALTER TABLE `jadwal`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `kategori`
 --
 ALTER TABLE `kategori`
@@ -195,6 +221,11 @@ ALTER TABLE `acak_maqra`
 --
 ALTER TABLE `acak_tema`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `jadwal`
+--
+ALTER TABLE `jadwal`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `kategori`
 --
