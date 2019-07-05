@@ -48,6 +48,7 @@ class Users_model extends CI_Model
         if ($hasil) {
             $this->session->set_userdata('id', $hasil->id);
             $this->session->set_userdata('email', $this->email);
+            $this->session->set_userdata('nama', $hasil->nama);
             $this->session->set_userdata('access', $hasil->access);
             return true;
         } else {
