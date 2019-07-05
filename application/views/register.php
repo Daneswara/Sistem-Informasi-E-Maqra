@@ -16,30 +16,30 @@
           Log in to start your session
         </p> -->
 
-        <form action="<?php echo base_url(); ?>index.php/User/daftar" method="post">
+        <form action="<?php echo base_url(); ?>index.php/User/daftar" method="post" enctype="multipart/form-data">
         <div class="form-group has-feedback">
-                <input type="text" class="form-control" placeholder="Nama" name="nama">
+                <input type="text" class="form-control" placeholder="Nama" name="nama" required>
                 <span class="glyphicon glyphicon-user form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
-                <input type="text" class="form-control" placeholder="Daerah" name="daerah">
+                <input type="text" class="form-control" placeholder="Daerah" name="daerah" required>
                 <span class="glyphicon glyphicon-map-marker form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
-                <input type="number" class="form-control" placeholder="No Hp" name="nohp">
+                <input type="number" class="form-control" placeholder="No Hp" name="nohp" required>
                 <span class="glyphicon glyphicon-phone form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
-                <input type="text" class="form-control" placeholder="Email" name="email">
+                <input type="text" class="form-control" placeholder="Email" name="email" required>
                 <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
-                <input type="password" class="form-control" placeholder="Password" name="password">
+                <input type="password" class="form-control" placeholder="Password" name="password" required>
                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
             </div>
             <div class="form-group">
                   <label for="exampleInputFile">Surat Mandat Sebagai Admin Kafilah</label>
-                  <input type="file" id="exampleInputFile">
+                  <input type="file" id="exampleInputFile" name="surat" required>
              </div>
             
             <div class="row">

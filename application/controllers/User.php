@@ -80,15 +80,18 @@ class User extends CI_Controller
 
     public function daftar()
     {
-        $user = $this->users_model;
-        if($user->add_user()){
-            echo "sukses";
-            $this->load->view('register');
-            // TODO sukses mendaftar dan tampilkan informasi menunggu proses validasi panitia
-        } else {
-            echo "gagal";
-            $this->load->view('register');
-            // TODO tampilkan gagal
+        $input = $this->input->post();
+        if (count($input) > 0){
+            $user = $this->users_model;
+            if($user->add_user()){
+                echo "sukses";
+                // TODO sukses mendaftar dan tampilkan informasi menunggu proses validasi panitia
+            } else {
+                echo "gagal";
+                // TODO tampilkan gagal
+            }
         }
+        $this->load->view('register');
+
     }
 }

@@ -64,7 +64,7 @@
         <!-- /.social-auth-links -->
 
         <a href="<?php echo base_url(); ?>index.php/User/Ganti">Lupa Password</a><br>
-        <a href="<?php echo base_url(); ?>index.php/User/keDaftar" class="text-center">Daftar Akun Baru</a>
+        <a href="<?php echo base_url(); ?>index.php/User/daftar" class="text-center">Daftar Akun Baru</a>
 
     </div>
     <!-- /.login-box-body -->

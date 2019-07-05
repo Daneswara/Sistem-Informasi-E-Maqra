@@ -78,7 +78,7 @@ class Users_model extends CI_Model
         $this->access = 'user';
 
         $config['upload_path'] = './surat/';
-        $config['allowed_types'] = 'gif|jpg|png';
+        $config['allowed_types'] = 'gif|jpeg|jpg|png';
 
         $this->load->library('upload', $config);
         $upload = $this->upload->do_upload('surat');
