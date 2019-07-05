@@ -39,12 +39,12 @@ class User extends CI_Controller
     public function getAllUser(){
         $kategori = $this->users_model;
         $data['list_user'] = $kategori->getUser();
-        $this->load->view('user', $data);
+        $this->load->view('list_user', $data);
     }
     public function getAllAdmin(){
         $kategori = $this->users_model;
         $data['list_user'] = $kategori->getAdmin();
-        $this->load->view('user_admin', $data);
+        $this->load->view('list_admin', $data);
     }
 
     public function proses()

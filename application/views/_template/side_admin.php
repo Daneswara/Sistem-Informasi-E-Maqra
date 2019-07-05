@@ -36,7 +36,7 @@
 
 
             <li>
-                <a href="<?php echo base_url(); ?>asset/adminlte/#">
+                <a href="<?php echo base_url(); ?>index.php/User/getAllUser">
                     <i class="fa fa-laptop"></i>
                     <span>Daerah</span>
                     <span class="pull-right-container"/>
