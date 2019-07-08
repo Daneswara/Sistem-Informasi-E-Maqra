@@ -1,4 +1,4 @@
-<body class="hold-transition skin-blue">
+<body class="hold-transition skin-blue-light fixed">
     <!-- Site wrapper -->
     <div class="wrapper">
 

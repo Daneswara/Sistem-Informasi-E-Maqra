@@ -24,5 +24,6 @@ class NomerUrut extends CI_Controller
         $data['jadwal'] = $jadwal;
         print_r($jadwal);
         $this->load->view('nomerurut', $data);
+        // $this->load->view('demo-particles');
     }
 }

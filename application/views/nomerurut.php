@@ -4,7 +4,7 @@ $this->load->view('_template/header');
 <!--tambahkan custom css disini-->
 <?php
  $this->load->view('_template/head');
- $this->load->view('_template/side');
+  $this->load->view('_template/side');
 ?>
 <!-- Content Header (Page header) -->
 <section class="content-header">
@@ -12,19 +12,18 @@ $this->load->view('_template/header');
         SIEM | Nomor Urut
     </h1>
     <ol class="breadcrumb">
-        <li><a href="<?php echo base_url('index.php/NomerUrut') ?>"><i class="fa fa-arrow-circle-left"></i> Keembali</a></li>
+        <li><a href="<?php echo base_url('index.php/NomerUrut') ?>"><i class="fa fa-arrow-circle-left"></i> Kembali</a></li>
 
     </ol>
 </section>
 
 <!-- Main content -->
-<section class="hold-transition lockscreen">
+<section class="hold-transition " >
     <div class="lockscreen-wrapper">
         <div class="lockscreen-logo">
-            <a href=""><b>Siksa Waktu Anda <br><?php echo date('d-m-Y H:i:s', strtotime($jadwal[0]->waktu_akhir_acak_nourut));?></a>
-        </div>
-        <div class="lockscreen-logo">
-            <a href=""><b>Siksa Waktu Anda</a>
+            <a href=""><b>Siksa Waktu Anda <br>
+            <?php echo date('d-m-Y H:i:s', strtotime($jadwal[0]->waktu_akhir_acak_nourut)); ?>
+        </a>
         </div>
         <!-- User name -->
         <!-- <div class="lockscreen-name" style="align-content: center">Siksa Waktu Anda</div>
@@ -44,5 +43,5 @@ $this->load->view('_template/header');
 </section><!-- /.content -->
 
 <?php
-// $this->load->view('_template/js');
+$this->load->view('_template/js');
 ?>
