@@ -19,6 +19,7 @@
 <body class="hold-transition login-page">
 <div class="login-box">
     <div class="login-logo">
+    <!-- <img src="<?php echo base_url(); ?>surat/themes10.jpg" class="logo-default" height="100px" alt="Logo"> -->
         <a href="<?php echo base_url(); ?>"><b>Login</a>
     </div>
 
