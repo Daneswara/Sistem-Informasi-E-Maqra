@@ -22,4 +22,8 @@ class AcakTema extends CI_Controller
         $data['list_acaktema'] = $nomerurut->getAll();
         $this->load->view('acaktema', $data);
     }
+    public function adminTema()
+    {
+        $this->load->view('admin_tema');
+    }
 }

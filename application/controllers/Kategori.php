@@ -37,4 +37,8 @@ class Kategori extends CI_Controller
         $hasil = $kategori->add_kategori();
         return $hasil;
     }
+    public function adminKategori()
+    {
+        $this->load->view('kategori_admin');
+    }
 }

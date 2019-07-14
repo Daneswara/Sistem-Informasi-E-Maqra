@@ -4,7 +4,7 @@
 $this->load->view('_template/header');
 ?>
 <?php
-$this->load->view('_template/head');
+$this->load->view('_template/head_awal');
 $this->load->view('_template/side');
 ?>
 <!-- Content Header (Page header) -->
@@ -20,7 +20,7 @@ $this->load->view('_template/side');
 </section> -->
 
 <!-- Main content -->
-<section class="s-home page-hero target-section" data-parallax="scroll" data-image-src="<?php echo base_url(); ?>surat/hero-bg.jpg" data-natural-width=3000 data-natural-height=2000 data-position-y=center>
+<section class="s-home" >
   <div class="grid-overlay">
     <div></div>
   </div>

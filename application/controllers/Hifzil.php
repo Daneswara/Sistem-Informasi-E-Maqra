@@ -1,14 +1,13 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class NomerUrut extends CI_Controller
+class Hifzil extends CI_Controller
 {
     public $access;
     public function __construct()
     {
         parent::__construct();
-        $this->load->model("nomerurut_model");
-        $this->load->model("jadwal_model");
+        $this->load->model("acakmaqra_model");
         $this->load->library('form_validation');
         $email = $this->session->userdata('email');
         $this->access = $this->session->userdata('access');
@@ -19,15 +18,6 @@ class NomerUrut extends CI_Controller
 
     public function index()
     {
-        $tb_jadwal = $this->jadwal_model;
-        $jadwal = $tb_jadwal->getAll();
-        $data['jadwal'] = $jadwal;
-        print_r($jadwal);
-        $this->load->view('nomerurut', $data);
-        // $this->load->view('demo-particles');
-    }
-    public function adminNomor()
-    {
-        $this->load->view('nomor_urut_admin');
+        $this->load->view('hifzil');
     }
 }

@@ -49,4 +49,8 @@ class Peserta extends CI_Controller
         $hasil = $peserta->add_peserta();
         return $hasil;
     }
+    public function adminPeserta()
+    {
+        $this->load->view('peserta_admin');
+    }
 }

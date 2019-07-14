@@ -20,4 +20,8 @@ class AcakMaqra extends CI_Controller
     {
         $this->load->view('acakmaqra');
     }
+    public function adminMaqra()
+    {
+        $this->load->view('admin_maqra');
+    }
 }
