@@ -18,7 +18,7 @@
         <ul class="sidebar-menu" data-widget="tree">
             <li class="header">Menu User</li>
             <li class="#">
-                <a href="<?php echo base_url()?>">
+                <a href="<?php echo base_url() ?>">
                     <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                 </a>
                 <ul class="treeview-menu">
@@ -27,25 +27,25 @@
                 </ul>
             </li>
             <li>
-                <a href="<?php echo base_url('index.php/User')?>">
+                <a href="<?php echo base_url('index.php/User') ?>">
                     <i class="fa fa-files-o"></i>
                     <span>Identitas</span>
                 </a>
             </li>
             <li>
-                <a href="<?php echo base_url('index.php/Peserta')?>">
+                <a href="<?php echo base_url('index.php/Peserta') ?>">
                     <i class="fa fa-pie-chart"></i>
                     <span>Peserta</span>
                 </a>
-            </li>            
+            </li>
             <li>
-                <a href="<?php echo base_url('index.php/NomerUrut')?>">
+                <a href="<?php echo base_url('index.php/NomerUrut') ?>">
                     <i class="fa fa-laptop"></i>
                     <span>Ambil Nomor Urut</span>
                 </a>
             </li>
             <li>
-                <a href="<?php echo base_url('index.php/NomerUrut')?>">
+                <a href="<?php echo base_url('index.php/NomerUrut') ?>">
                     <i class="fa fa-laptop"></i> <span>Ambil Maqra</span>
                 </a>
             </li>
@@ -55,11 +55,65 @@
                 </a>
             </li>
         </ul>
+
     </section>
+
     <!-- /.sidebar -->
 </aside>
-
+<!-- <style>
+    .sidebar-mini {
+        background-color: black;
+    }
+</style> -->
 <!-- =============================================== -->
 
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
+    <script>
+        $('.sidebar').particleground({
+            dotColor: '#fff',
+            lineColor: '#555555',
+            particleRadius: 6,
+            curveLines: true,
+            density: 10000,
+            proximity: 110
+        });;
+        $(".home-slides").vegas({
+            transition: 'fade',
+            transitionDuration: 2500,
+            delay: 5000,
+            slides: [{
+                    src: "<?php echo base_url(); ?>surat/themes10.jpg"
+                },
+                {
+                    src: "<?php echo base_url(); ?>surat/imagges.jpeg"
+                },
+                {
+                    src: "<?php echo base_url(); ?>surat/LogoARP.png"
+                }
+            ]
+        });
+    </script>
+    <style type="text/css">
+        .sidebar {
+            background: #f9fafc;
+            overflow: hidden;
+
+        }
+
+        .sidebar .pg-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100% !important;
+            width: 100% !important;
+            opacity: .52;
+        }
+
+        .sidebar .shadow-overlay {
+            background: #d2d6de;
+            display: none;
+        }
+
+       
+    </style>

@@ -39,9 +39,9 @@
 
 <footer class="main-footer">
     <div class="pull-right hidden-xs">
-        <b>Version</b> 1.0
+        <b></b> 
     </div>
-    <strong>Copyright &copy; 2019 <a href="http://masbie.com">Masbie Studio</a>.</strong> All rights reserved.
+    <strong> &copy; <?php //echo (int)date('Y')." "; ?><a href="http://masbie.com">MTQ </a><?php echo (int)date('Y')." "; ?></strong> 
 </footer>
 </div>
 

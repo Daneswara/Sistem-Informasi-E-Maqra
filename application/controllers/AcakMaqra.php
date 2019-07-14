@@ -18,6 +18,6 @@ class AcakMaqra extends CI_Controller
 
     public function index()
     {
-        $this->load->view('acaknomor');
+        $this->load->view('acakmaqra');
     }
 }

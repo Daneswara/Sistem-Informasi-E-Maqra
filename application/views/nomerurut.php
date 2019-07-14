@@ -16,13 +16,16 @@ $this->load->view('_template/side');
 
     </ol>
 </section>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
 <section class="lockscreen-wrapper">
 
     <div style="text-align: center;">
         <label style="text-align: center;font-family: 'Titillium Web', cursive;font-size: 40px;">Sisa Waktu Anda</label>
     </div>
     <br>
+    <!-- <div value="<?php echo $jadwal[0]->waktu_akhir_acak_nourut[0] ?>" >
+    cek
+    </div> -->
     <div id="days"></div>
     <div id="hours"></div>
     <br>
@@ -139,7 +142,10 @@ $this->load->view('_template/side');
 
     function makeTimer() {
 
-        var endTime = new Date("29 April 2020 9:56:00 GMT+07:00");
+        // var endTime = new Date("29 April 2020 9:56:00 GMT+07:00");
+        console.log("sdsd");
+
+        var endTime = new Date("2019-07-31 00:00:00 GMT+07:00");
         endTime = (Date.parse(endTime) / 1000);
 
         var now = new Date();
@@ -460,7 +466,39 @@ $this->load->view('_template/side');
         }
     }
 </style>
+  <script>
+    $('.home-particles').particleground({
+      dotColor: '#fff',
+      lineColor: '#555555',
+      particleRadius: 6,
+      curveLines: true,
+      density: 10000,
+      proximity: 110
+    });;
+    // });
+  </script>
+  <style type="text/css">
+    .home-particles {
+      background: #d2d6de;
+      overflow: hidden;
 
+    }
+
+    .home-particles .pg-canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100% !important;
+      width: 100% !important;
+      opacity: .52;
+      background-image: url(<?php echo base_url(); ?>surat/themes10.jpg);
+    }
+
+    .home-particles .shadow-overlay {
+      background: #d2d6de;
+      display: none;
+    }
+  </style>
 <?php
 $this->load->view('_template/js');
 ?>

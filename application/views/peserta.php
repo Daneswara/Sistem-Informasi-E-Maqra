@@ -24,7 +24,7 @@ if($this->session->userdata('access') == "admin"){
 </section>
 
 <!-- Main content -->
-<section class="content">
+<section class="content home-particles">
 
     <!-- Default box -->
     <!-- <div class="box">
@@ -121,7 +121,38 @@ window.onclick = function(event) {
 }
 </script>
 </section><!-- /.content -->
+<script>
+    $('.home-particles').particleground({
+      dotColor: '#fff',
+      lineColor: '#555555',
+      particleRadius: 6,
+      curveLines: true,
+      density: 10000,
+      proximity: 110
+    });;
+    // });
+  </script>
+  <style type="text/css">
+    .home-particles {
+      background: #f9fafc;
+      overflow: hidden;
 
+    }
+
+    .home-particles .pg-canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100% !important;
+      width: 100% !important;
+      opacity: .52;
+    }
+
+    .home-particles .shadow-overlay {
+      background: #d2d6de;
+      display: none;
+    }
+  </style>
 <!-- <?php 
 $this->load->view('_template/js');
 ?>

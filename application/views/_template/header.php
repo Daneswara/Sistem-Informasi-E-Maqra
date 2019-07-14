@@ -24,7 +24,7 @@
 <link rel="stylesheet" href="<?php echo base_url(); ?>asset/adminlte/bower_components/bootstrap-daterangepicker/daterangepicker.css">
 <!-- bootstrap wysihtml5 - text editor -->
 <link rel="stylesheet" href="<?php echo base_url(); ?>asset/adminlte/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
-<link rel="stylesheet" href="<?php echo base_url(); ?>asset/adminlte/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+<!-- <link rel="stylesheet" href="<?php //echo base_url(); ?>asset/adminlte/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css"> -->
 <link rel="stylesheet" href="<?php echo base_url(); ?>asset/adminlte/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
 
 
@@ -36,5 +36,8 @@
 <![endif]-->
 
 <!-- Google Font -->
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+<!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic"> -->
 <link rel="stylesheet" href="<?php echo base_url(); ?>asset/adminlte/https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+<link href="<?php echo base_url(); ?>/asset/dist/lity.css" rel="stylesheet">
+<script src="<?php echo base_url(); ?>/node_modules/jquery/dist/jquery.min.js"></script>
+<script src="<?php echo base_url(); ?>/asset/js/plugins.js"></script>

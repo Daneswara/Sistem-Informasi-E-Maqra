@@ -1,11 +1,11 @@
-<body class="hold-transition skin-blue-light fixed">
+<body class="hold-transition skin-blue-light sidebar-collapse sidebar-mini fixed">
     <!-- Site wrapper -->
     <div class="wrapper">
 
         <header class="main-header">
             <a href="#" class="logo">
                 <!-- mini logo for sidebar mini 50x50 pixels -->
-                <span class="logo-mini"><b>E</b>MTQ</span>
+                <span class="logo-mini"><b>M</b>TQ</span>
                 <!-- logo for regular state and mobile devices -->
                 <span class="logo-lg"><b>E-Maqra</b>MTQ</span>
             </a>

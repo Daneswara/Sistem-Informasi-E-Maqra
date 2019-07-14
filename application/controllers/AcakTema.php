@@ -20,6 +20,6 @@ class AcakTema extends CI_Controller
     {
         $nomerurut = $this->acaktema_model;
         $data['list_acaktema'] = $nomerurut->getAll();
-        $this->load->view('kategori', $data);
+        $this->load->view('acaktema', $data);
     }
 }
