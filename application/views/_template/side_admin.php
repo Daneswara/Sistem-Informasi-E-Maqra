@@ -37,7 +37,7 @@
                 </a>
             </li>
             <li>
-                <a href="<?php echo base_url('index.php/Peserta/adminPeserta') ?>">
+                <a href="<?php echo base_url('index.php/Peserta') ?>">
                     <i class="fa fa-pie-chart"></i>
                     <span>Peserta</span>
                 </a>
@@ -64,7 +64,7 @@
                 </a>
             </li>
             <li>
-                <a href="<?php echo base_url('index.php/Admin') ?>">
+                <a href="<?php echo base_url('index.php/User/getAllAdmin') ?>">
                     <i class="fa fa-laptop"></i> <span>Admin</span>
                     </a>
                     </li>
