@@ -131,6 +131,11 @@ window.onclick = function(event) {
 </script>
 </section><!-- /.content -->
 
-<!-- <?php 
+<?php 
 $this->load->view('_template/js');
 ?>
+<script>
+  $(function () {
+    $('#example1').DataTable()
+  })
+</script>

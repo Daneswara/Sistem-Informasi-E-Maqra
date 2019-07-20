@@ -33,6 +33,7 @@ class Peserta extends CI_Controller
             $kategori = $this->getNamaKategori($p->kategori);
             $p->kategori = $kategori;
         }
+
         $data['list_peserta'] = $semua_peserta;
         $this->load->view('peserta', $data);
     }

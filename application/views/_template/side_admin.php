@@ -48,7 +48,7 @@
                     <span>Kategori Lomba</span>
                 </a>
             </li>
-            <li>
+            <!-- <li>
                 <a href="<?php echo base_url('index.php/NomerUrut/adminNomor') ?>">
                     <i class="fa fa-laptop"></i> <span>Nomor Urut Tampil</span>
                 </a>
@@ -62,18 +62,17 @@
                 <a href="<?php echo base_url('index.php/AcakTema/adminTema') ?>">
                     <i class="fa fa-laptop"></i> <span>Tema</span>
                 </a>
-            </li>
+            </li> -->
             <li>
-                <a href="<?php echo base_url('index.php/User/getAllAdmin') ?>">
-                    <i class="fa fa-laptop"></i> <span>Admin</span>
-                    </a>
-                    </li>
-                    <li>
                 <a href="<?php echo base_url('index.php/Jadwal') ?>">
                     <i class="fa fa-laptop"></i> <span>Jadwal</span>
                 </a>
             </li>
+            <li>
+                <a href="<?php echo base_url('index.php/User/getAllAdmin') ?>">
+                    <i class="fa fa-laptop"></i> <span>Admin</span>
                 </a>
+            </li>
             </li>
         </ul>
 
