@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 03, 2019 at 04:04 PM
+-- Generation Time: Jul 20, 2019 at 12:20 PM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 7.0.8
 
@@ -159,7 +159,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `daerah`, `email`, `password`, `nama`, `nohp`, `surat`, `access`, `created_date`, `updated_date`, `updated_by`) VALUES
-(5, 'Pati', 'new@new.com', '22af645d1859cb5ca6da0c484f1f37ea', 'Daneswara', '085730595101', 'themes10.jpg', 'user', '2019-06-18 20:43:25', '2019-07-03 20:17:53', 0);
+(5, 'Pati', 'new@new.com', '22af645d1859cb5ca6da0c484f1f37ea', 'Daneswara', '085730595101', 'themes10.jpg', 'admin', '2019-06-18 20:43:25', '2019-07-05 20:19:51', 0),
+(6, 'Pati', 'daneswarajauhari@gmail.com', '23774d7fe41cc7e444830818ba4d308a', 'Daneswara', '085730595101', 'talin.JPG', 'user', '2019-07-05 20:07:18', '2019-07-05 20:07:18', 0),
+(7, 'tes', 'tes', '28b662d883b6d76fd96e4ddc5e9ba780', 'tes', '123', 'balloon.jpeg', 'user', '2019-07-05 20:08:11', '2019-07-05 20:08:11', 0);
 
 --
 -- Indexes for dumped tables
@@ -245,7 +247,7 @@ ALTER TABLE `peserta`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
