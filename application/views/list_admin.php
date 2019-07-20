@@ -56,13 +56,17 @@ if($this->session->userdata('access') == "admin"){
                     <td>Nama</td>
                     <td>Email</td>
                     <td>No. HP</td>
+                    <td>Edit</td>
+                    <td>Delete</td>
                 </tr>
                 </thead>
                 <tbody>
                 <?php
                 foreach ($list_user as $admin) {
                     echo "<tr><td>$admin->nama</td><td>$admin->email</td>
-                        <td>$admin->nohp</td>";
+                        <td>$admin->nohp</td>
+                        <td><a href='#edit' type='button' class='btn btn-warning'>Edit</button></td>
+                        <td><a href='#delete' type='button' class='btn btn-danger'>Delete</button></td>";
                 }
                 ?>
                 </tbody>

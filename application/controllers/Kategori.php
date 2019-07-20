@@ -28,7 +28,7 @@ class Kategori extends CI_Controller
         }
         $kategori = $this->kategori_model;
         $data['list_kategori'] = $kategori->getAll();
-        $this->load->view('kategori', $data);
+        $this->load->view('kategori_admin', $data);
     }
 
     public function add()

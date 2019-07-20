@@ -34,43 +34,53 @@ $this->load->view('_template/side_admin');
             </div>
         </div> -->
         <div class="box">
-            <div class="box-header">
-              <h3 class="box-title">Daftar Kafilah</h3>
-              <div class="box-tools pull-right">
-                <button class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse"><i class="fa fa-minus"></i></button>
-                <button class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove"><i class="fa fa-times"></i></button>
+        <div class="box-header">
+            <h3 class="box-title">Kategori</h3>
+            <div class="box-tools pull-right">
+                <button id="myBtn" type="button" class="btn btn-success">
+                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                    Tambah Kategori
+                </button>
             </div>
-            </div>
-            <!-- /.box-header -->
-            <div class="box-body">
-              <table id="example1" class="table table-bordered table-striped">
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+            <table id="example1" class="table table-bordered table-striped">
                 <thead>
-                <tr>
-                  <th>No Urut</th>
-                  <th>Nama</th>
-                  <th>Kategori</th>
-                </tr>
+                    <tr>
+                        <td>Nama Kategori</td>
+                        <td>Ada Maqra</td>
+                        <td>Ada Tema</td>
+                        <td>Edit</td>
+                        <td>Delete</td>
+                    </tr>
+                    <br>
                 </thead>
                 <tbody>
-   
-                <tr>
-                  <td> Nomor</td>
-                  <td> Peserta ke </td>
-                  <td>Kategori ke</td>
-                </tr>
-       
+                    <?php
+                    foreach ($list_kategori as $kategori) {
+                        echo "<tr><td>$kategori->kategori</td><td>";
+                        if ($kategori->pakai_maqra == 1) {
+                            echo "Iya";
+                        } else {
+                            echo "Tidak";
+                        }
+                        echo "</td><td>";
+                        if ($kategori->pakai_tema == 1) {
+                            echo "Iya";
+                        } else {
+                            echo "Tidak";
+                        }
+                        echo "</td>
+                        <td><a href='#edit' type='button' class='btn btn-warning'>Edit</button></td>
+                        <td><a href='#delete' type='button' class='btn btn-danger'>Delete</button></td>";
+                    }
+                    ?>
                 </tbody>
-                <tfoot>
-                <tr>
-                  <th>No Urut</th>
-                  <th>Nama</th>
-                  <th>Kategori</th>
-                </tr>
-                </tfoot>
-              </table>
-            </div>
-            <!-- /.box-body -->
-          </div>
+            </table>
+        </div>
+        <!-- /.box-body -->
+    </div>
 
     <!-- </div> -->
     <!-- /.box -->

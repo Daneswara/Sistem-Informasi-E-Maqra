@@ -52,16 +52,26 @@ if($this->session->userdata('access') == "admin"){
               <table id="example1" class="table table-bordered table-striped">
               <thead>
                 <tr>
+                    <td>Daerah</td>
                     <td>Nama</td>
                     <td>Email</td>
                     <td>No. HP</td>
+                    <td>Surat Mandat</td>
+                    <td>Status</td>
+                    <td>Edit</td>
+                    <td>Delete</td>
                 </tr>
                 </thead>
                 <tbody>
                 <?php
                 foreach ($list_user as $user) {
-                    echo "<tr><td>$user->nama</td><td>$user->email</td>
-                        <td>$user->nohp</td>";
+                    echo "<tr><td>$user->daerah</td>
+                        <td>$user->nama</td><td>$user->email</td>
+                        <td>$user->nohp</td>
+                        <td><a href='".base_url("surat/")."$user->surat' target='_blank'>$user->surat</a></td>
+                        <td><a href='#approve' type='button' class='btn btn-info'>Approve</button></td>
+                        <td><a href='#edit' type='button' class='btn btn-warning'>Edit</button></td>
+                        <td><a href='#delete' type='button' class='btn btn-danger'>Delete</button></td>";
                 }
                 ?>
                 </tbody>

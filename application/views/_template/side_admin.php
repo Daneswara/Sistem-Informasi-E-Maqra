@@ -17,7 +17,7 @@
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu" data-widget="tree">
             <li class="header">Menu Admin</li>
-            <li class="active treeview">
+            <!-- <li class="active treeview">
                 <a href="<?php echo base_url() ?>">
                     <i class="fa fa-dashboard"></i> <span>Acara</span>
                     <span class="pull-right-container">
@@ -29,9 +29,9 @@
                     <li><a href="<?php echo base_url('index.php/Tilawah') ?>"><i class="fa fa-circle-o"></i> Tilawah</a></li>
                     <li><a href="<?php echo base_url('index.php/Fahmil') ?>"><i class="fa fa-circle-o"></i> Fahmil</a></li>
                 </ul>
-            </li>
+            </li> -->
             <li>
-                <a href="<?php echo base_url('index.php/Daerah') ?>">
+                <a href="<?php echo base_url('index.php/User/getAllUser') ?>">
                     <i class="fa fa-files-o"></i>
                     <span>Daerah</span>
                 </a>
@@ -43,7 +43,7 @@
                 </a>
             </li>
             <li>
-                <a href="<?php echo base_url('index.php/Kategori/adminKategori') ?>">
+                <a href="<?php echo base_url('index.php/Kategori/') ?>">
                     <i class="fa fa-laptop"></i>
                     <span>Kategori Lomba</span>
                 </a>
