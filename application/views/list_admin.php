@@ -55,7 +55,6 @@ if($this->session->userdata('access') == "admin"){
                 <tr>
                     <td>Nama</td>
                     <td>Email</td>
-                    <td>No. HP</td>
                     <td>Edit</td>
                     <td>Delete</td>
                 </tr>
@@ -64,7 +63,6 @@ if($this->session->userdata('access') == "admin"){
                 <?php
                 foreach ($list_user as $admin) {
                     echo "<tr><td>$admin->nama</td><td>$admin->email</td>
-                        <td>$admin->nohp</td>
                         <td><a href='#edit' type='button' class='btn btn-warning'>Edit</button></td>
                         <td><a href='#delete' type='button' class='btn btn-danger'>Delete</button></td>";
                 }
@@ -82,10 +80,10 @@ if($this->session->userdata('access') == "admin"){
             <div class="modal-content">
             <div class="modal-header">
                 <span class="close">&times;</span>
-                <h2>Tambah data</h2>
+                <h2>Tambah User Admin</h2>
             </div>
             <div class="modal-body">
-                <form method="POST" action="<?php echo base_url(); ?>index.php/Peserta/">
+                <form method="POST" action="<?php echo base_url(); ?>index.php/User/daftar_admin">
                     <table class="table table-user-information">
                     <tbody>
                         <tr>
@@ -94,8 +92,11 @@ if($this->session->userdata('access') == "admin"){
                         </tr>
                         <tr>
                         <td>Email</td>
-                        <td><input type="text" name="kategori" class="form-control" placeholder="Email"/></td>
-                        </tr>                     
+                        <td><input type="email" name="email" class="form-control" placeholder="Email"/></td>
+                        </tr>  
+                        <td>Password</td>
+                        <td><input type="password" name="password" class="form-control" placeholder="Password"/></td>
+                        </tr>                      
                         
                         <tr>
                         <td><input class="btn btn-success" type="submit" name="btnSubmit" value="Tambahkan"></td>
