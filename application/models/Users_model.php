@@ -36,7 +36,7 @@ class Users_model extends CI_Model
     }
     public function getAdmin()
     {
-        return $this->db->get($this->_table, ['access' => 'admin'])->result();
+        return $this->db->get_where($this->_table, ['access' => 'admin'])->result();
     }
 
     public function cekUserLogin()
@@ -69,13 +69,14 @@ class Users_model extends CI_Model
 
     public function add_user()
     {
+        $id_user = $this->session->userdata('id');
         $post = $this->input->post();
         $this->nama = $post['nama'];
         $this->email = $post['email'];
         $this->password = md5($post['password']);
         $this->nohp = $post['nohp'];
         $this->daerah = $post['daerah'];
-        $this->updated_by = 0;
+        $this->updated_by = $id_user;
         $this->access = 'user';
 
         $config['upload_path'] = './surat/';
@@ -91,5 +92,18 @@ class Users_model extends CI_Model
             $this->db->insert($this->_table,$this);
             return true;
         }
+    }
+
+    public function add_user_admin()
+    {
+        $id_user = $this->session->userdata('id');
+        $post = $this->input->post();
+        $this->nama = $post['nama'];
+        $this->email = $post['email'];
+        $this->password = md5($post['password']);
+        $this->updated_by = $id_user;
+        $this->access = 'admin';
+        $this->db->insert($this->_table,$this);
+        return true;
     }
 }

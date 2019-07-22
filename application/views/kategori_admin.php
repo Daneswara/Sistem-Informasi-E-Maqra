@@ -84,7 +84,59 @@ $this->load->view('_template/side_admin');
 
     <!-- </div> -->
     <!-- /.box -->
-
+    <div id="myModal" class="modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close">&times;</span>
+                    <h2>Tambah Kategori</h2>
+                </div>
+                <div class="modal-body">
+                    <form method="POST" action="<?php echo base_url(); ?>index.php/Kategori/">
+                        <table class="table table-user-information">
+                            <tbody>
+                                <tr>
+                                    <td>Nama Kategori</td>
+                                    <td><input type="text" name="kategori" placeholder="Nama Kategori" required /></td>
+                                </tr>
+                                <tr>
+                                    <td>Pakai Maqra</td>
+                                    <td> Iya <input type="radio" name="maqra" value="1" required />
+                                        Tidak <input type="radio" name="maqra" value="0" required /></td>
+                                </tr>
+                                <tr>
+                                    <td>Pakai Tema</td>
+                                    <td> Iya <input type="radio" name="tema" value="1" required />
+                                        Tidak <input type="radio" name="tema" value="0" required /></td>
+                                </tr>
+                                <tr>
+                                    <td><input class="btn btn-success" type="submit" name="btnSubmit" value="Tambahkan">
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </form>
+                </div>
+            </div>
+            <br><br><br>
+        </div>
+    </div>
+    <script>
+        var modal = document.getElementById('myModal');
+        var btn = document.getElementById("myBtn");
+        var span = document.getElementsByClassName("close")[0];
+        btn.onclick = function() {
+            modal.style.display = "block";
+        }
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
 </section><!-- /.content -->
 
 <?php 

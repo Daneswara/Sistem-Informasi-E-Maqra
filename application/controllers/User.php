@@ -79,7 +79,7 @@ class User extends CI_Controller
         $this->load->view('login');
     }
 
-    public function daftar()
+    public function daftar($id=1)
     {
         $input = $this->input->post();
         if (count($input) > 0){
@@ -92,7 +92,30 @@ class User extends CI_Controller
                 // TODO tampilkan gagal
             }
         }
-        $this->load->view('register');
+        if($id == 0){
+            redirect(base_url("index.php/User/getAllUser"));
+        } else if($id == 1){
+            $this->load->view('register');
+        }
+        
+
+    }
+
+    public function daftar_admin()
+    {
+        $input = $this->input->post();
+        if (count($input) > 0){
+            $user = $this->users_model;
+            if($user->add_user_admin()){
+                echo "sukses";
+                // TODO sukses mendaftar dan tampilkan informasi menunggu proses validasi panitia
+            } else {
+                echo "gagal";
+                // TODO tampilkan gagal
+            }
+        }
+        redirect(base_url("index.php/User/getAllAdmin"));
+        
 
     }
 }
