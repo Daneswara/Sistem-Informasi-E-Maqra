@@ -18,19 +18,24 @@ $this->load->view('_template/side');
 </section>
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
 <section class="lockscreen-wrapper">
-
+    <!-- <button type="submit" id="myBtnTanpil" class="btn btn-primary btn-block btn-flat">Tampil Acak</button> -->
     <div style="text-align: center;">
-        <label style="text-align: center;font-family: 'Titillium Web', cursive;font-size: 40px;">Sisa Waktu Anda</label>
+        <label id="sisa" style="text-align: center;font-family: 'Titillium Web', cursive;font-size: 40px;">Waktu Ambil No.Urut</label>
     </div>
     <br>
-    <!-- <div value="<?php echo $jadwal[0]->waktu_akhir_acak_nourut[0] ?>" >
-    cek
+    <!-- <div>
+        <?php
+        //         foreach ($jadwal as $j) {
+        // echo $j->waktu_akhir_acak_nourut;
+        //         } 
+        ?>
     </div> -->
     <div id="days"></div>
     <div id="hours"></div>
     <br>
     <br>
-    <button type="submit" id="myBtn" class="btn btn-primary btn-block btn-flat">Acak</button>
+    <button type="submit" id="myBtn" class="btn btn-primary btn-block btn-flat" style="display: none;">Acak</button>
+
 
     <!-- </div> -->
 
@@ -72,10 +77,10 @@ $this->load->view('_template/side');
 </section><!-- /.content -->
 
 <script>
+
     $(function() {
         var ele = $('#haha');
         var clr = null;
-
         (loop = function() {
             var rand = (Math.random() * 30) >> 0;
             clearTimeout(clr);
@@ -90,6 +95,7 @@ $this->load->view('_template/side');
             setTimeout(loop, 100);
         })();
     });
+    
     $(function() {
         //     var ele2 = $('#hasil');
         var rand2 = Math.floor((Math.random() * 100));
@@ -129,6 +135,18 @@ $this->load->view('_template/side');
     stop.onclick = function() {
         modal.style.display = "none";
         modal2.style.display = "block";
+        // $.ajax({
+        // url : "<?php //echo base_url(); ?>index.php/NomerUrut/postNomor"
+        // type : "POST",
+        // dataType : "json",
+        // data : {"id" : id, "user_id": user_id "hasil" : rand, "tgl_acak": tgl_acak },
+        // success : function(data) {
+        //     console.log('data', data)
+        // },
+        // error : function(data) {
+        //     // do something
+        // }
+    });
     }
     span.onclick = function() {
         modal.style.display = "none";
@@ -141,11 +159,18 @@ $this->load->view('_template/side');
     }
 
     function makeTimer() {
+        // var btnTampil = document.getElementById('myBtnTanpil');
+        // btnTampil.onclick = function() {
+        //     myBtn.style.display = "block";
+        // }
 
         // var endTime = new Date("29 April 2020 9:56:00 GMT+07:00");
-        console.log("sdsd");
+        var coba = "<?php foreach ($jadwal as $j) {
+                        echo $j->waktu_akhir_acak_nourut;
+                    } ?>";
+        console.log('coba', coba);
 
-        var endTime = new Date("2019-07-31 00:00:00 GMT+07:00");
+        var endTime = new Date(coba);
         endTime = (Date.parse(endTime) / 1000);
 
         var now = new Date();
@@ -168,11 +193,21 @@ $this->load->view('_template/side');
             seconds = "0" + seconds;
         }
 
-        $("#days").html(days + "<span>  Hari</span>");
+        // $("#days").html(days + "<span>  Hari</span>");
+        // $("#hours").html(hours + " : " + minutes + " : " + seconds + " ");
         // $("#hours").html(+ hours + "<span>Hours</span>" + minutes + "<span>Minutes</span>" + seconds + "<span>Seconds</span>");
-        $("#hours").html(hours + " : " + minutes + " : " + seconds + " ");
+       
         // $("#minutes").html(minutes + "<span>Minutes</span>");
         // $("#seconds").html(seconds + "<span>Seconds</span>");
+        if (parseInt(days) < 0) {
+            myBtn.style.display = "block";
+            days.style.display = "none";
+            hours.style.display = "none";
+            sisa.style.display = "none";
+        }else{
+             $("#days").html(days + "<span>  Hari</span>");
+            $("#hours").html(hours + " : " + minutes + " : " + seconds + " ");
+        }
 
     }
 
@@ -466,39 +501,39 @@ $this->load->view('_template/side');
         }
     }
 </style>
-  <script>
+<script>
     $('.home-particles').particleground({
-      dotColor: '#fff',
-      lineColor: '#555555',
-      particleRadius: 6,
-      curveLines: true,
-      density: 10000,
-      proximity: 110
+        dotColor: '#fff',
+        lineColor: '#555555',
+        particleRadius: 6,
+        curveLines: true,
+        density: 10000,
+        proximity: 110
     });;
     // });
-  </script>
-  <style type="text/css">
+</script>
+<style type="text/css">
     .home-particles {
-      background: #d2d6de;
-      overflow: hidden;
+        background: #d2d6de;
+        overflow: hidden;
 
     }
 
     .home-particles .pg-canvas {
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 100% !important;
-      width: 100% !important;
-      opacity: .52;
-      background-image: url(<?php echo base_url(); ?>surat/themes10.jpg);
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100% !important;
+        width: 100% !important;
+        opacity: .52;
+        background-image: url(<?php echo base_url(); ?>surat/themes10.jpg);
     }
 
     .home-particles .shadow-overlay {
-      background: #d2d6de;
-      display: none;
+        background: #d2d6de;
+        display: none;
     }
-  </style>
+</style>
 <?php
 $this->load->view('_template/js');
 ?>

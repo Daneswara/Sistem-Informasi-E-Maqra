@@ -36,7 +36,7 @@ $this->load->view('_template/side');
       </h3>
 
       <div class="home-content__video">
-        <a class="video-link" href="//www.youtube.com/watch?v=XSGBVzeBUbk" data-lity>
+        <a class="video-link" href="www.youtube.com/watch?v=XSGBVzeBUbk" data-lity>
           <span class="video-icon"></span>
           <span class="video-text">Tonton Video</span>
         </a>
