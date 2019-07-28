@@ -34,7 +34,8 @@ $this->load->view('_template/side');
     <div id="hours"></div>
     <br>
     <br>
-    <button type="submit" id="myBtn" class="btn btn-primary btn-block btn-flat" style="display: none;">Acak</button>
+    <!-- <button type="submit" id="myBtn" class="btn btn-primary btn-block btn-flat" style="display: none;">Acak</button> -->
+    <button type="submit" id="myBtn" class="btn btn-primary btn-block btn-flat">Acak</button>
 
 
     <!-- </div> -->
@@ -58,7 +59,8 @@ $this->load->view('_template/side');
                 <div class="flip-card-inner">
                     <div id="hasil" class="flip-card-front">
                         <!-- <div class="fontAcak2" id="hasil">
-                            <Label><?php echo (rand(0, 100)) ?></Label>
+                            <Label><?php //echo (rand(0, 100)) 
+                                    ?></Label>
                         </div> -->
                     </div>
                     <div id="backHasil" class="flip-card-back">
@@ -77,33 +79,42 @@ $this->load->view('_template/side');
 </section><!-- /.content -->
 
 <script>
-
+    var jmlpeserta = "<?php echo $banyak; ?>";
+    var jmlpesertaperkategori = "<?php echo $peserta_perkategori;?>";
+    var NamaKategori = "<?php $i = 0;
+                        foreach ($kategori as $k) {
+                            echo $k->kategori . ',';
+                            $i++;
+                        } ?>";
+    splitNamaKetegori = NamaKategori.split(",");
+    idKategori = "<?php echo $kategori_awal; ?>";
+    console.log('idKategori :', jmlpesertaperkategori);
     $(function() {
         var ele = $('#haha');
         var clr = null;
         (loop = function() {
-            var rand = (Math.random() * 30) >> 0;
+            var rand = (Math.random() * jmlpesertaperkategori+1) >> 0;
             clearTimeout(clr);
-            (inloop = function() {
-
-                ele.html(rand);
-                if (!(rand % 50)) {
-                    return;
-                }
-                clr = setTimeout(inloop, 30);
-            })();
-            setTimeout(loop, 100);
+            ele.html(rand);
+            setTimeout(loop, 80);
         })();
     });
-    
+
     $(function() {
         //     var ele2 = $('#hasil');
-        var rand2 = Math.floor((Math.random() * 100));
+        var rand = Math.floor((Math.random() * jmlpesertaperkategori+1));
+        for (d = 0; d < 1000; d++) {
+            if (rand != "0") {
+                break;
+            } else {
+                rand = Math.floor((Math.random() * jmlpesertaperkategori+1));
+            }
+        }
         //     ele2.html(rand2);
-        html2 = '<h1>Kafilah Fahmil' + rand2 + '</h1><h2>Bandung' + rand2 + '</h2>';
+        html2 = '<h1>Kafilah <br><br>' + splitNamaKetegori[idKategori] + '<br></h1><h1>Nomor Urut <br>' + rand + '</h1>';
         $('#backHasil').html(html2);
 
-        html = '<div class="fontAcak2" id="hasil">' + rand2 + '</div>';
+        html = '<div class="fontAcak2" id="hasil">' + rand + '</div>';
         $('#hasil').html(html);
     });
     var modal = document.getElementById('myModal');
@@ -122,31 +133,44 @@ $this->load->view('_template/side');
         hasil.style.display = "block";
         $(function() {
             //     var ele2 = $('#hasil');
-            var rand2 = Math.floor((Math.random() * 100));
+            var rand = Math.floor((Math.random() * jmlpesertaperkategori+1));
+            for (d = 0; d < 1000; d++) {
+                if (rand != "0") {
+                    break;
+                } else {
+                    rand = Math.floor((Math.random() * jmlpesertaperkategori+1));
+                }
+            }
             //     ele2.html(rand2);
-            html2 = '<h1>Kafilah Fahmil' + rand2 + '</h1><h2>Bandung' + rand2 + '</h2>';
+            html2 = '<h1>Kafilah <br><br>' + splitNamaKetegori[idKategori] + '<br></h1><h1>Nomor Urut <br>' + rand + '</h1>';
             $('#backHasil').html(html2);
 
-            html = '<div class="fontAcak2" id="hasil">' + rand2 + '</div>';
+            html = '<div class="fontAcak2" id="hasil">' + rand + '</div>';
             $('#hasil').html(html);
         });
-
     }
     stop.onclick = function() {
         modal.style.display = "none";
         modal2.style.display = "block";
+        var d = new Date();
+        var tgl_acak = d.toLocaleString();
+        console.log('tgl_acaSDSDk', d.toLocaleString());
         // $.ajax({
-        // url : "<?php //echo base_url(); ?>index.php/NomerUrut/postNomor"
-        // type : "POST",
-        // dataType : "json",
-        // data : {"id" : id, "user_id": user_id "hasil" : rand, "tgl_acak": tgl_acak },
-        // success : function(data) {
-        //     console.log('data', data)
-        // },
-        // error : function(data) {
-        //     // do something
-        // }
-    });
+        //     url: "<?php //echo base_url(); ?>index.php/NomerUrut/postNomor"
+        //     type: "POST",
+        //     dataType: "json",
+        //     data: {
+        //         "user_id": rand "hasil": rand,
+        //         "tgl_acak": tgl_acak,
+        //         "kategori": kategori
+        //     },
+        //     success: function(data) {
+        //         // console.log('data', data);
+        //     },
+        //     error: function(data) {
+        //         // do something
+        //     }
+        // });
     }
     span.onclick = function() {
         modal.style.display = "none";
@@ -196,7 +220,7 @@ $this->load->view('_template/side');
         // $("#days").html(days + "<span>  Hari</span>");
         // $("#hours").html(hours + " : " + minutes + " : " + seconds + " ");
         // $("#hours").html(+ hours + "<span>Hours</span>" + minutes + "<span>Minutes</span>" + seconds + "<span>Seconds</span>");
-       
+
         // $("#minutes").html(minutes + "<span>Minutes</span>");
         // $("#seconds").html(seconds + "<span>Seconds</span>");
         if (parseInt(days) < 0) {
@@ -204,8 +228,8 @@ $this->load->view('_template/side');
             days.style.display = "none";
             hours.style.display = "none";
             sisa.style.display = "none";
-        }else{
-             $("#days").html(days + "<span>  Hari</span>");
+        } else {
+            $("#days").html(days + "<span>  Hari</span>");
             $("#hours").html(hours + " : " + minutes + " : " + seconds + " ");
         }
 
