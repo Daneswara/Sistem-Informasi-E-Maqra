@@ -19,16 +19,17 @@ class NomerUrut_model extends CI_Model
     public function postNoUrut()
     {
         $post = $this->input->post();
-        $this->nama = $post['id'];
-        $this->email = $post['user_id'];
+        $this->user_id = $post['user_id'];
         $this->hasil = $post['hasil'];
         $this->tgl_acak = $post['tgl_acak'];
+        $this->kategori = $post['kategori'];
         $simpan = $this->db->insert($this->_table, $this);
         if ($simpan) {
             return true;
         } else {
             return false;
         }
+        print_r('PESERTA>>>>>>>>>>>>>>>><<<<<<<<<<<<<<<<<<<<<<<<<');
     }
     public function updateNoUrutPeserta()
     {

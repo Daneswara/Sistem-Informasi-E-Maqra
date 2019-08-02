@@ -71,37 +71,39 @@ class NomerUrut extends CI_Controller
     }
     public  function postNomor()
     {
-        $nourut = $this->NomorUrut_model;
+        print_r('Sebelum>>>>>>>>>>>>>>>><<<<<<<<<<<<<<<<<<<<<<<<<');
+        $nourut = $this->nomerurut_model;
         $hasil = $nourut->postNoUrut();
+        print_r('Sesudah>>>>>>>>>>>>>>>><<<<<<<<<<<<<<<<<<<<<<<<<'.$hasil);
         return $hasil;
     }
     public  function updateNomorPeserta()
     {
-        $nourut = $this->NomorUrut_model;
+        $nourut = $this->nomerurut_model;
         $hasil = $nourut->updateNoUrutPeserta();
         return $hasil;
     }
     public  function postMaqra()
     {
-        $nourut = $this->NomorUrut_model;
+        $nourut = $this->nomerurut_model;
         $hasil = $nourut->postMaqra();
         return $hasil;
     }
     public  function updateMaqraPeserta()
     {
-        $nourut = $this->NomorUrut_model;
+        $nourut = $this->nomerurut_model;
         $hasil = $nourut->updateMaqraPeserta();
         return $hasil;
     }
     public  function postTema()
     {
-        $nourut = $this->NomorUrut_model;
+        $nourut = $this->nomerurut_model;
         $hasil = $nourut->postTema();
         return $hasil;
     }
     public  function updateTemaPeserta()
     {
-        $nourut = $this->NomorUrut_model;
+        $nourut = $this->nomerurut_model;
         $hasil = $nourut->updateTemaPeserta();
         return $hasil;
     }

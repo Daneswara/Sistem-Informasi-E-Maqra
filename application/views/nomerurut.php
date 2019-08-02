@@ -79,8 +79,10 @@ $this->load->view('_template/side');
 </section><!-- /.content -->
 
 <script>
+    var rand = 0;
+    var tgl_acak;
     var jmlpeserta = "<?php echo $banyak; ?>";
-    var jmlpesertaperkategori = "<?php echo $peserta_perkategori;?>";
+    var jmlpesertaperkategori = "<?php echo $peserta_perkategori; ?>";
     var NamaKategori = "<?php $i = 0;
                         foreach ($kategori as $k) {
                             echo $k->kategori . ',';
@@ -93,21 +95,20 @@ $this->load->view('_template/side');
         var ele = $('#haha');
         var clr = null;
         (loop = function() {
-            var rand = (Math.random() * jmlpesertaperkategori+1) >> 0;
+            var rand = (Math.random() * jmlpesertaperkategori + 1) >> 0;
             clearTimeout(clr);
             ele.html(rand);
             setTimeout(loop, 80);
         })();
     });
-
     $(function() {
         //     var ele2 = $('#hasil');
-        var rand = Math.floor((Math.random() * jmlpesertaperkategori+1));
+        rand = Math.floor((Math.random() * jmlpesertaperkategori + 1));
         for (d = 0; d < 1000; d++) {
             if (rand != "0") {
                 break;
             } else {
-                rand = Math.floor((Math.random() * jmlpesertaperkategori+1));
+                rand = Math.floor((Math.random() * jmlpesertaperkategori + 1));
             }
         }
         //     ele2.html(rand2);
@@ -133,12 +134,12 @@ $this->load->view('_template/side');
         hasil.style.display = "block";
         $(function() {
             //     var ele2 = $('#hasil');
-            var rand = Math.floor((Math.random() * jmlpesertaperkategori+1));
+            var rand = Math.floor((Math.random() * jmlpesertaperkategori + 1));
             for (d = 0; d < 1000; d++) {
                 if (rand != "0") {
                     break;
                 } else {
-                    rand = Math.floor((Math.random() * jmlpesertaperkategori+1));
+                    rand = Math.floor((Math.random() * jmlpesertaperkategori + 1));
                 }
             }
             //     ele2.html(rand2);
@@ -153,24 +154,58 @@ $this->load->view('_template/side');
         modal.style.display = "none";
         modal2.style.display = "block";
         var d = new Date();
-        var tgl_acak = d.toLocaleString();
+        // tgl_acak = d.toLocaleString();
+        tgl_acak = d.format("YYYY-MM-DD")
         console.log('tgl_acaSDSDk', d.toLocaleString());
+        // var myKeyVals = {
+        //     A1984: 1,
+        //     A9873: 5,
+        //     A1674: 2,
+        //     A8724: 1,
+        //     A3574: 3,
+        //     A1165: 5
+        // }
+        console.log('rand', rand);
+        console.log('tgl_acak', d);
+        console.log('kategori', splitNamaKetegori[idKategori]);
+        var myKeyVals = {
+            user_id: rand,
+            hasil: rand,
+            tgl_acak: tgl_acak,
+            kategori: splitNamaKetegori[idKategori]
+        }
+
+        $.ajax({
+            type: 'POST',
+            url: "<?php echo base_url(); ?>index.php/NomerUrut/postNomor",
+            data: myKeyVals,
+            dataType: "text",
+            success: function(data) {
+                alert("Save Complete")
+            }
+            // error: function(resultData) {
+            //     console.log('Error', d.toLocaleString());
+            // }
+        });
+
         // $.ajax({
+        //     type: 'POST',
         //     url: "<?php //echo base_url(); ?>index.php/NomerUrut/postNomor"
-        //     type: "POST",
         //     dataType: "json",
         //     data: {
-        //         "user_id": rand "hasil": rand,
-        //         "tgl_acak": tgl_acak,
-        //         "kategori": kategori
+        //         user_id: rand,
+        //         hasil: rand,
+        //         tgl_acak: tgl_acak,
+        //         kategori: splitNamaKetegori[idKategori]
         //     },
         //     success: function(data) {
-        //         // console.log('data', data);
+        //         console.log('succcses', d.toLocaleString());
         //     },
         //     error: function(data) {
-        //         // do something
+        //         console.log('Error', d.toLocaleString());
         //     }
         // });
+        console.log('Dibawah', d.toLocaleString());
     }
     span.onclick = function() {
         modal.style.display = "none";
