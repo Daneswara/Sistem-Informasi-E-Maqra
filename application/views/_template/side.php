@@ -45,12 +45,12 @@
                 </a>
             </li>
             <li>
-                <a href="<?php echo base_url('index.php/NomerUrut/maqra') ?>">
+                <a href="<?php echo base_url('index.php/AcakMaqra') ?>">
                     <i class="fa fa-laptop"></i> <span>Ambil Maqra</span>
                 </a>
             </li>
             <li>
-                <a href="<?php echo base_url('index.php/NomerUrut/tema') ?>">
+                <a href="<?php echo base_url('index.php/AcakTema') ?>">
                     <i class="fa fa-laptop"></i> <span>Ambil Tema</span>
                 </a>
             </li>

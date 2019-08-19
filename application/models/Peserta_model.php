@@ -4,14 +4,10 @@ class Peserta_model extends CI_Model
 {
     private $_table = "peserta";
 
-    public $id;
+    // public $id;
     public $user_id;
     public $nama;
     public $kategori;
-    public $urutan;
-    public $maqra;
-    public $tema;
-    public $kategori1 = 0;
 
     public function getAll()
     {
@@ -37,25 +33,83 @@ class Peserta_model extends CI_Model
             return false;
         }
     }
+    public function updateNoUrutPeserta($id)
+    {
+        $urutan =0;
+         $post = $this->input->post();
+        $this->user_id = $post['user_id'];
+        $this->nama = $post['nama'];
+        $this->kategori = $post['kategori'];
+        $this->urutan = $post['urutan'];
+        // $this->maqra = $post['maqra'];
+        // $this->tema = $post['tema'];
+        $simpan = $this->db->update($this->_table,  $this, array('id' => $id));
+        if ($simpan) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    public function updateMaqraPeserta($id)
+    {
+        
+        $maqra = 0;
+        $post = $this->input->post();
+        $this->user_id = $post['user_id'];
+        $this->nama = $post['nama'];
+        $this->kategori = $post['kategori'];
+        // $this->urutan = $post['urutan'];
+        $this->maqra = $post['maqra'];
+        // $this->tema = $post['tema'];
+        $simpan = $this->db->update($this->_table,  $this, array('id' => $id));
+        if ($simpan) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    public function updateTemaPeserta($id)
+    {
+        
+        $tema=0;
+        $post = $this->input->post();
+        $this->user_id = $post['user_id'];
+        $this->nama = $post['nama'];
+        $this->kategori = $post['kategori'];
+        // $this->urutan = $post['urutan'];
+        // $this->maqra = $post['maqra'];
+        $this->tema = $post['tema'];
+        $simpan = $this->db->update($this->_table,  $this, array('id' => $id));
+        if ($simpan) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    // public $kategori1 = 0;
     public function getPesertaDaerah($kategori1)
     {
+        // print_r('sebelemu>>>>>>');
+        // print_r($kategori1);
         $id = $this->session->userdata('id');
         $query = $this->db->query("select * from peserta where user_id= '+$id+' ");
+        
+        $i = 0;
+        foreach ($query->result() as $row) {
+            $ff[$i] = $row->kategori;
+            $i++;
+        }
         if ($kategori1 == 0 || $kategori1 == null) {
-            $i = 0;
-            foreach ($query->result() as $row) {
-
-                $ff[$i] = $row->kategori;
-                $i++;
-            }
-            $query2 = $this->db->query("select * from peserta where kategori= '+$ff[0]+' ");
+            $query2 = $this->db->query("select * from peserta where kategori= $ff[0]");
         } else {
-            $query2 = $this->db->query("select * from peserta where kategori= '+$kategori1+' ");
+            // print_r('didalam>>>>>>');
+            // print_r($kategori1);
+            $query2 = $this->db->query("select * from peserta where kategori= $ff[$kategori1]");
         }
         // $query2 = $this->db->query("select * from peserta where kategori= 2 ");
         return array(
             'peserta_daerah' => $query->result(), 'banyak_peserta' => $query->num_rows(),
-            'banyak_kategori' => $query2->num_rows(), 'kategori_awal'=>$ff[0]
+            'banyak_kategori' => $query2->num_rows(), 'kategori_awal'=>$ff[$kategori1] 
         );
     }
     public function getKategoriPesertaDaerah()

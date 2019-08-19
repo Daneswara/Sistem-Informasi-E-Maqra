@@ -30,6 +30,7 @@ $this->load->view('_template/side');
         //         } 
         ?>
     </div> -->
+    
     <div id="days"></div>
     <div id="hours"></div>
     <br>
@@ -71,7 +72,7 @@ $this->load->view('_template/side');
             </div>
         </div>
         <div class="bottomAcak2">
-            <button type="submit" id="myBtn2" class="btn btn-primary btn-block btn-flat">Acak Lagi</button>
+            <button type="submit" id="myBtn2" class="btn btn-primary btn-block btn-flat">Acak Lagi?</button>
         </div>
     </div>
 
@@ -79,7 +80,18 @@ $this->load->view('_template/side');
 </section><!-- /.content -->
 
 <script>
+    var user_id= '<?php echo $_SESSION['id'];?>';
+    var modal = document.getElementById('myModal');
+    var modal2 = document.getElementById('myModal2');
+    var btn = document.getElementById("myBtn");
+    var btn2 = document.getElementById("myBtn2");
+    var span = document.getElementById("close");
+    var stop = document.getElementById("stop");
+    var hasil = document.getElementById("hasil");
     var rand = 0;
+    var pd=0;
+    var pdTemp=0;
+    var banyak_peserta_daerah = "<?php echo $peserta_perdaerah?>"-1;
     var tgl_acak;
     var jmlpeserta = "<?php echo $banyak; ?>";
     var jmlpesertaperkategori = "<?php echo $peserta_perkategori; ?>";
@@ -90,7 +102,49 @@ $this->load->view('_template/side');
                         } ?>";
     splitNamaKetegori = NamaKategori.split(",");
     idKategori = "<?php echo $kategori_awal; ?>";
-    console.log('idKategori :', jmlpesertaperkategori);
+    var pesertaDaerahTemp = "<?php $i = 0;
+                            foreach ($peserta_daerah as $peserta) {
+                                echo $peserta->id . ',';
+                                $i++;
+                            } ?>";
+    splitPesertaDaerah = pesertaDaerahTemp.split(",");
+    var pesertaDaerahTempUserid = "<?php $i = 0;
+                            foreach ($peserta_daerah as $peserta) {
+                                echo $peserta->user_id . ',';
+                                $i++;
+                            } ?>";
+    splitPesertaDaerahUserid = pesertaDaerahTempUserid.split(",");
+    var pesertaDaerahTempNama = "<?php $i = 0;
+                            foreach ($peserta_daerah as $peserta) {
+                                echo $peserta->nama . ',';
+                                $i++;
+                            } ?>";
+    splitPesertaDaerahNama = pesertaDaerahTempNama.split(",");
+    var pesertaDaerahTempKategori = "<?php $i = 0;
+                            foreach ($peserta_daerah as $peserta) {
+                                echo $peserta->kategori . ',';
+                                $i++;
+                            } ?>";
+    splitPesertaDaerahKategori = pesertaDaerahTempKategori.split(",");
+    var pesertaDaerahTempUrut = "<?php $i = 0;
+                            foreach ($peserta_daerah as $peserta) {
+                                echo $peserta->urutan . ',';
+                                $i++;
+                            } ?>";
+    splitPesertaDaerahUrut = pesertaDaerahTempUrut.split(",");
+    
+    console.log('idKategori :', splitPesertaDaerahUrut[pd]);
+    while (pdTemp <= banyak_peserta_daerah) {
+        // console.log('splitPesertaDaerahUrut[pdTemp]',splitPesertaDaerahUrut[pdTemp]);
+        if (splitPesertaDaerahUrut[pdTemp]== null || splitPesertaDaerahUrut[pdTemp]== 0 ){
+            pd = pdTemp;
+            console.log('pd',pd);
+            break;
+        }else{
+            pdTemp++;
+            console.log('pdTemp',pdTemp);
+        }
+    }
     $(function() {
         var ele = $('#haha');
         var clr = null;
@@ -101,110 +155,137 @@ $this->load->view('_template/side');
             setTimeout(loop, 80);
         })();
     });
+    var tempRand;
     $(function() {
         //     var ele2 = $('#hasil');
         rand = Math.floor((Math.random() * jmlpesertaperkategori + 1));
-        for (d = 0; d < 1000; d++) {
-            if (rand != "0") {
+        for (d = 0; d < splitPesertaDaerahUrut.length ; d++) {
+            console.log('d atas',d);
+            console.log('panjang', splitPesertaDaerahUrut.length);
+            for(e=0; e <splitPesertaDaerahUrut.length; e++){
+                if(rand == splitPesertaDaerahUrut[e]){
+                    tempRand++;
+                }else{
+                    rand = rand;
+                }
+            }
+            if (rand != "0" && tempRand == 0 ) {
                 break;
             } else {
                 rand = Math.floor((Math.random() * jmlpesertaperkategori + 1));
+                d=0;
+                console.log('rand',rand);
+                console.log('d bawah',d);
             }
         }
         //     ele2.html(rand2);
-        html2 = '<h1>Kafilah <br><br>' + splitNamaKetegori[idKategori] + '<br></h1><h1>Nomor Urut <br>' + rand + '</h1>';
+        html2 = '<h1>Kafilah <br>'+splitPesertaDaerahNama[pd]+'<br>' + splitNamaKetegori[splitPesertaDaerahKategori[pd]] + '<br></h1><h1>Nomor Urut <br>' + rand + '</h1>';
         $('#backHasil').html(html2);
 
         html = '<div class="fontAcak2" id="hasil">' + rand + '</div>';
         $('#hasil').html(html);
     });
-    var modal = document.getElementById('myModal');
-    var modal2 = document.getElementById('myModal2');
-    var btn = document.getElementById("myBtn");
-    var btn2 = document.getElementById("myBtn2");
-    var span = document.getElementById("close");
-    var stop = document.getElementById("stop");
-    var hasil = document.getElementById("hasil");
+
     btn.onclick = function() {
         modal.style.display = "block";
     }
     btn2.onclick = function() {
-        modal.style.display = "block";
-        modal2.style.display = "none";
-        hasil.style.display = "block";
-        $(function() {
-            //     var ele2 = $('#hasil');
-            var rand = Math.floor((Math.random() * jmlpesertaperkategori + 1));
-            for (d = 0; d < 1000; d++) {
-                if (rand != "0") {
-                    break;
-                } else {
-                    rand = Math.floor((Math.random() * jmlpesertaperkategori + 1));
-                }
-            }
-            //     ele2.html(rand2);
-            html2 = '<h1>Kafilah <br><br>' + splitNamaKetegori[idKategori] + '<br></h1><h1>Nomor Urut <br>' + rand + '</h1>';
-            $('#backHasil').html(html2);
+        console.log('banyak_peserta_daerah',banyak_peserta_daerah );
+        if(pd == banyak_peserta_daerah){
+            alert("Peserta anda sudah dipilih semua nomor urutnya");
+            console.log('Peserta anda sudah dipilih semua nomor urutnya', pd);
+            location.reload();
+        }else{
+            var linkupdateKategori = "<?php echo base_url(); ?>index.php/NomerUrut/getPesertaDaerah/"+(pd+1)+"";
+            console.log('Peserta', pd);
+            $(location).attr('href',linkupdateKategori);
+            console.log('p',p);
+        }
+        // if(pdTemp>banyak_peserta_daerah){
+        //     modal.style.display = "none";
+        // }else{
+        //     modal.style.display = "block";
+        // }
+        // modal.style.display = "block";
+        // modal2.style.display = "none";
+        // hasil.style.display = "block";
+        // $(function() {
+        //     //     var ele2 = $('#hasil');
+        //     var rand = Math.floor((Math.random() * jmlpesertaperkategori + 1));
+        //     for (d = 0; d < 1000; d++) {
+        //         if (rand != "0") {
+        //             break;
+        //         } else {
+        //             rand = Math.floor((Math.random() * jmlpesertaperkategori + 1));
+        //         }
+        //     }
+        //     //     ele2.html(rand2);
+        //     html2 = '<h1>Kafilah <br><br>' + splitNamaKetegori[idKategori] + '<br></h1><h1>Nomor Urut <br>' + rand + '</h1>';
+        //     $('#backHasil').html(html2);
 
-            html = '<div class="fontAcak2" id="hasil">' + rand + '</div>';
-            $('#hasil').html(html);
-        });
+        //     html = '<div class="fontAcak2" id="hasil">' + rand + '</div>';
+        //     $('#hasil').html(html);
+        // });
     }
     stop.onclick = function() {
         modal.style.display = "none";
         modal2.style.display = "block";
-        var d = new Date();
-        // tgl_acak = d.toLocaleString();
-        tgl_acak = d.format("YYYY-MM-DD")
-        console.log('tgl_acaSDSDk', d.toLocaleString());
-        // var myKeyVals = {
-        //     A1984: 1,
-        //     A9873: 5,
-        //     A1674: 2,
-        //     A8724: 1,
-        //     A3574: 3,
-        //     A1165: 5
-        // }
+        //  var d = new Date().toISOString().slice(0, 19).replace('T', ' ');
+        
+
+        console.log('idKategori :', splitPesertaDaerah[pd]);
+        var tzoffset = (new Date()).getTimezoneOffset() * 60000; //offset in milliseconds
+        tgl_acak = (new Date(Date.now() - tzoffset)).toISOString().slice(0, 19).replace('T', ' ');
+        
+        // tgl_acak = new Date().toISOString().slice(0, 19).replace('T', ' ') ;
+        // tgl_acak = d;
+        //tgl_acak = d.format("YYYY-MM-DD");
+        console.log('tgl_acaSDSDk', tgl_acak);
         console.log('rand', rand);
-        console.log('tgl_acak', d);
-        console.log('kategori', splitNamaKetegori[idKategori]);
+        console.log('kategori', splitNamaKetegori[splitPesertaDaerahKategori[pd]]);
         var myKeyVals = {
-            user_id: rand,
+            user_id: splitPesertaDaerahUserid[pd],
             hasil: rand,
             tgl_acak: tgl_acak,
-            kategori: splitNamaKetegori[idKategori]
+            kategori: splitNamaKetegori[splitPesertaDaerahKategori[pd]]
         }
-
+        console.log('splitPesertaDaerahUserid', splitPesertaDaerahUserid[pd]);
+        console.log('splitPesertaDaerahNama[pd]', splitPesertaDaerahNama[pd]);
+        console.log('splitPesertaDaerahKategori[pd]', splitPesertaDaerahKategori[pd]);
+        console.log('rand', rand);
+        var updateData = {
+            id:splitPesertaDaerah[pd],
+            user_id: splitPesertaDaerahUserid[pd],
+            nama: splitPesertaDaerahNama[pd],
+            kategori: splitPesertaDaerahKategori[pd],
+            urutan: rand
+            // maqra:null,
+            // tema:null
+        }
         $.ajax({
             type: 'POST',
             url: "<?php echo base_url(); ?>index.php/NomerUrut/postNomor",
             data: myKeyVals,
             dataType: "text",
             success: function(data) {
+               // alert("Save Complete")
+                console.loh('simpan');
+            }
+        });
+        $.ajax({
+            type: 'POST',
+            url: "<?php echo base_url(); ?>index.php/NomerUrut/updateNomorPeserta/"+splitPesertaDaerah[pd]+"",
+            data: updateData,
+            dataType: "text",
+            success: function(data) {
                 alert("Save Complete")
             }
-            // error: function(resultData) {
-            //     console.log('Error', d.toLocaleString());
-            // }
         });
+            // var linkupdateKategori = "<?php //echo base_url(); ?>index.php/NomerUrut/getPesertaDaerah/"+(pd+1)+"";
+           
+            // $(location).attr('href',linkupdateKategori);
+        
 
-        // $.ajax({
-        //     type: 'POST',
-        //     url: "<?php //echo base_url(); ?>index.php/NomerUrut/postNomor"
-        //     dataType: "json",
-        //     data: {
-        //         user_id: rand,
-        //         hasil: rand,
-        //         tgl_acak: tgl_acak,
-        //         kategori: splitNamaKetegori[idKategori]
-        //     },
-        //     success: function(data) {
-        //         console.log('succcses', d.toLocaleString());
-        //     },
-        //     error: function(data) {
-        //         console.log('Error', d.toLocaleString());
-        //     }
-        // });
         console.log('Dibawah', d.toLocaleString());
     }
     span.onclick = function() {
@@ -227,7 +308,7 @@ $this->load->view('_template/side');
         var coba = "<?php foreach ($jadwal as $j) {
                         echo $j->waktu_akhir_acak_nourut;
                     } ?>";
-        console.log('coba', coba);
+        // console.log('coba', coba);
 
         var endTime = new Date(coba);
         endTime = (Date.parse(endTime) / 1000);
@@ -259,7 +340,12 @@ $this->load->view('_template/side');
         // $("#minutes").html(minutes + "<span>Minutes</span>");
         // $("#seconds").html(seconds + "<span>Seconds</span>");
         if (parseInt(days) < 0) {
-            myBtn.style.display = "block";
+            if(pdTemp>banyak_peserta_daerah){
+                myBtn.style.display = "none";
+            }else{
+                myBtn.style.display = "block";
+            }
+            // myBtn.style.display = "block";
             days.style.display = "none";
             hours.style.display = "none";
             sisa.style.display = "none";

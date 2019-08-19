@@ -12,6 +12,7 @@ class NomerUrut extends CI_Controller
         $this->load->model("jadwal_model");
         $this->load->model("peserta_model");
         $this->load->model("kategori_model");
+        $this->load->model("users_model");
         $this->load->library('form_validation');
         $email = $this->session->userdata('email');
         $this->access = $this->session->userdata('access');
@@ -25,6 +26,7 @@ class NomerUrut extends CI_Controller
 
         $tb_jadwal = $this->jadwal_model;
         $jadwal = $tb_jadwal->getAll();
+        $user = $this->users_model->getAll();
         // $data['jadwal'] = $jadwal;
         $peserta = $this->peserta_model;
         $semua_peserta = $peserta->getAll();
@@ -38,10 +40,12 @@ class NomerUrut extends CI_Controller
         // print_r($kategori_);
         $this->load->view('nomerurut', array(
             'jadwal' => $jadwal, 'peserta' => $semua_peserta, 'banyak' => $banyak_peserta,
-            'kategori' => $kategori_, 'banyak_daerah' => $banyak_peserta_daerah['peserta_daerah'], 
+            'kategori' => $kategori_,
             'peserta_perdaerah' => $banyak_peserta_daerah['banyak_peserta'],
             'peserta_perkategori' => $banyak_peserta_daerah['banyak_kategori'],
-            'kategori_awal' => $banyak_peserta_daerah['kategori_awal']
+            'kategori_awal' => $banyak_peserta_daerah['kategori_awal'], 
+            'peserta_daerah' => $banyak_peserta_daerah['peserta_daerah'],
+            'user'=>$user
         ));
         // $this->load->view('demo-particles');
     }
@@ -71,40 +75,26 @@ class NomerUrut extends CI_Controller
     }
     public  function postNomor()
     {
-        print_r('Sebelum>>>>>>>>>>>>>>>><<<<<<<<<<<<<<<<<<<<<<<<<');
+        print_r('PESERTA>>>>>>>>>>>>>>>><<<<<<<<<<<<<<<<<<<<<<<<<controller');
         $nourut = $this->nomerurut_model;
         $hasil = $nourut->postNoUrut();
-        print_r('Sesudah>>>>>>>>>>>>>>>><<<<<<<<<<<<<<<<<<<<<<<<<'.$hasil);
+        
+        print_r('PESERTA>>>>>>>>>>>>>>>><<<<<<<<<<<<<<<<<<<<<<<<disi');
         return $hasil;
     }
-    public  function updateNomorPeserta()
+    public function getPesertaDaerah($kategori){
+        
+        $nourut = $this->peserta_model;
+        $hasil = $nourut->getPesertaDaerah($kategori);
+        redirect(base_url()."index.php/NomerUrut");
+        return $hasil;
+    }
+    public  function updateNomorPeserta($id)
     {
-        $nourut = $this->nomerurut_model;
-        $hasil = $nourut->updateNoUrutPeserta();
+        $nourut = $this->peserta_model;
+        $hasil = $nourut->updateNoUrutPeserta($id);
         return $hasil;
     }
-    public  function postMaqra()
-    {
-        $nourut = $this->nomerurut_model;
-        $hasil = $nourut->postMaqra();
-        return $hasil;
-    }
-    public  function updateMaqraPeserta()
-    {
-        $nourut = $this->nomerurut_model;
-        $hasil = $nourut->updateMaqraPeserta();
-        return $hasil;
-    }
-    public  function postTema()
-    {
-        $nourut = $this->nomerurut_model;
-        $hasil = $nourut->postTema();
-        return $hasil;
-    }
-    public  function updateTemaPeserta()
-    {
-        $nourut = $this->nomerurut_model;
-        $hasil = $nourut->updateTemaPeserta();
-        return $hasil;
-    }
+
+
 }
