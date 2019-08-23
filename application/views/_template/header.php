@@ -41,4 +41,5 @@
 <link href="<?php echo base_url(); ?>/asset/dist/lity.css" rel="stylesheet">
 <script src="<?php echo base_url(); ?>/node_modules/jquery/dist/jquery.min.js"></script>
 <script src="<?php echo base_url(); ?>/asset/js/plugins.js"></script>
+<script src="<?php echo base_url(); ?>/asset/js/loading.js"></script>
 <title>Sistem Informasi E-Maqra (SIEM)</title>

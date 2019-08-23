@@ -164,11 +164,9 @@ $this->load->view('_template/side');
             for(e=0; e <splitPesertaDaerahUrut.length; e++){
                 if(rand == splitPesertaDaerahUrut[e]){
                     tempRand++;
-                }else{
-                    rand = rand;
                 }
             }
-            if (rand != "0" && tempRand == 0 ) {
+            if (rand != "0" && tempRand != 0 ) {
                 break;
             } else {
                 rand = Math.floor((Math.random() * jmlpesertaperkategori + 1));

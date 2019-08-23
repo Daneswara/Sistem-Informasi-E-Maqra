@@ -155,8 +155,9 @@ $this->load->view('_template/side');
             setTimeout(loop, 80);
         })();
     });
-    var tempRand;
+    var tempRand=0;
     $(function() {
+        // show_preload();
         //     var ele2 = $('#hasil');
         rand = Math.floor((Math.random() * jmlpesertaperkategori + 1));
         for (d = 0; d < splitPesertaDaerahUrut.length ; d++) {
@@ -165,11 +166,11 @@ $this->load->view('_template/side');
             for(e=0; e <splitPesertaDaerahUrut.length; e++){
                 if(rand == splitPesertaDaerahUrut[e]){
                     tempRand++;
-                }else{
-                    rand = rand;
+                    console.log('tempRand',tempRand);
                 }
             }
-            if (rand != "0" && tempRand == 0 ) {
+            if (rand != "0" && tempRand == 0) {
+                // hide_preload();
                 break;
             } else {
                 rand = Math.floor((Math.random() * jmlpesertaperkategori + 1));
@@ -269,7 +270,7 @@ $this->load->view('_template/side');
             dataType: "text",
             success: function(data) {
                // alert("Save Complete")
-                console.loh('simpan');
+                console.log('simpan');
             }
         });
         $.ajax({
